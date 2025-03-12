@@ -1,0 +1,64 @@
+@if (state$ | async; as state) {
+  <mat-toolbar class="bg-dark text-white justify-content-between">
+    @if (mobile()) {
+      <button class="text-white" mat-icon-button (click)="toggleMenu.emit()"><mat-icon>menu</mat-icon></button>
+    }
+    <div>
+      <a routerLink="dashboard" class="ml-1">
+        <img class="logo" ngSrc="assets/images/ns-logo.svg" alt="Accessns logo" height="26" width="99" />
+      </a>
+    </div>
+    @if (!mobile()) {
+      <div>
+        @for (menu of menus; track menu.label) {
+          @if (menu.link) {
+            <button (click)="updateActiveParent(menu.url)" [routerLink]="menu.url" routerLinkActive="border-bottom border-2 border-primary" class="text-white bg-dark" mat-flat-button>
+              {{ menu.label }}
+            </button>
+          } @else {
+            <button [ngClass]="{ 'border-bottom border-2 border-primary': menu.active }" class="text-white bg-dark" mat-flat-button [matMenuTriggerFor]="dropDownMenu">
+              {{ menu.label }}
+              <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu class="bg-dark" #dropDownMenu="matMenu">
+              @for (childMenu of menu.child; track childMenu.label) {
+                <button
+                  (click)="updateActiveParent(menu.url)"
+                  [routerLink]="childMenu.url"
+                  [queryParams]="childMenu.queryParams"
+                  routerLinkActive="border-bottom border-2 border-primary"
+                  class="text-white"
+                  mat-menu-item>
+                  {{ childMenu.label }}
+                </button>
+              }
+            </mat-menu>
+          }
+        }
+      </div>
+    }
+    <div class="d-flex align-items-center text-light">
+      <button class="text-white" routerLink="/home/shipment-orders/search-and-find" mat-icon-button><mat-icon>search</mat-icon></button>
+      <button class="text-white" mat-icon-button><mat-icon>star</mat-icon></button>
+      <button class="text-white" mat-icon-button [matMenuTriggerFor]="notificationMenu"><mat-icon>notifications</mat-icon></button>
+      <button class="text-white" mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="Example icon-button with a menu">
+        <mat-icon>person_outline</mat-icon>
+      </button>
+      <mat-menu xPosition="before" #notificationMenu>
+        <otc-notification></otc-notification>
+        <div class="pt-2 d-flex justify-content-center">
+          <button mat-stroked-button aria-label="View All" (click)="viewNotifications()">View All</button>
+        </div>
+      </mat-menu>
+      <mat-menu #userMenu="matMenu">
+        <div mat-menu-item>
+          {{ state.user.firstName + ' ' + state.user.lastName }}
+        </div>
+        <div mat-menu-item>
+          <mat-slide-toggle [checked]="state.user.preference.darkMode" (change)="changeTheme($event)"></mat-slide-toggle>
+          Dark Mode
+        </div>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+}

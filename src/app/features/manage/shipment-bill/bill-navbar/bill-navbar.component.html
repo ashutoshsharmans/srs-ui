@@ -1,0 +1,24 @@
+<mat-card class="d-flex flex-row align-items-center mt-3">
+  <mat-selection-list hideSingleSelectionIndicator [multiple]="false">
+    @for (billSection of billSections(); track billSection.key) {
+      <mat-list-option [value]="billSection.key" (click)="scrollTo(billSection.key)">
+        <div class="d-flex justify-content-between">
+          <div class="pe-5">
+            <b>{{ billSection.label }}</b>
+          </div>
+          <otc-badge [value]="billSection.status"></otc-badge>
+        </div>
+      </mat-list-option>
+      @if (billSection.subSections) {
+        @for (subSection of billSection.subSections; track subSection.label) {
+          <mat-list-option>
+            <div class="d-flex">
+              <mat-icon>subdirectory_arrow_right</mat-icon>
+              <span class="ps-3">{{ subSection.label }}</span>
+            </div>
+          </mat-list-option>
+        }
+      }
+    }
+  </mat-selection-list>
+</mat-card>

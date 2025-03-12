@@ -1,0 +1,70 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.PROTECTIVE_SERVICE }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <mat-form-field appearance="outline">
+      <mat-label>Protective Service Code</mat-label>
+      <mat-select formControlName="protectiveServiceCode">
+        <mat-option value="D">Discontinue Service</mat-option>
+        <mat-option value="HDN">HDN - Do Not Heat</mat-option>
+        <mat-option value="HDNC">HDNC - Do Not Heat (Canada)</mat-option>
+        <mat-option value="HSC">HSC - Standard Heating (Canada)</mat-option>
+        <mat-option value="M">M - Standard Mech Protective Service</mat-option>
+        <mat-option value="MN">MN - Modified Mech Protective Service</mat-option>
+        <mat-option value="MNU">MNU - Do Not Operate</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Protective Service Rule</mat-label>
+      <mat-select formControlName="protectiveServiceRule">
+        <mat-option value=""></mat-option>
+        <mat-option value="720">720 - Do Not Operate Unit</mat-option>
+        <mat-option value="515">515 - Heating Code: Carrier's Protective Service</mat-option>
+        <mat-option value="509">509 - Heating Code: Modified Carrier's Protective Service</mat-option>
+        <mat-option value="510">510 - Heating Code: Shipper's Protective Service</mat-option>
+        <mat-option value="240">240 - Initially Iced by Shipper - Don't Re-Ice</mat-option>
+        <mat-option value="716">716 - Liquid CO2 used in lieu of MPS in Shipr Furn Car</mat-option>
+        <mat-option value="712">712 - Operate Mech Unit at Origin to Shipper Spec Temp and PD</mat-option>
+        <mat-option value="705">705 - Optimum Temp 0 Deg or Less</mat-option>
+        <mat-option value="710">710 - Optimum Temp Above 0 Deg</mat-option>
+        <mat-option value="765">765 - Optimum Temp Above 0 Deg with Body Ice</mat-option>
+        <mat-option value="715">715 - Optimum Temp of 0 Deg or Less (Car Owned/Leased by Shipper)</mat-option>
+        <mat-option value="711">711 - Place Under Modified MPS After Temp Rises Above Optimum</mat-option>
+        <mat-option value="245">245 - Pre-Cooled and Pre-Iced by Shipper - Don't Re-Ice</mat-option>
+        <mat-option value="580">580 - Special Heater Protective Service</mat-option>
+        <mat-option value="225">225 - Stop for Icing</mat-option>
+        <mat-option value="242">242 - Top Iced by Shipper at Origin</mat-option>
+        <mat-option value="805">805 - Trailer/Container: Optimum Temperature Above Zero</mat-option>
+        <mat-option value="810">810 - Trailer/Container: Ventilators Opened at Origin</mat-option>
+        <mat-option value="830">830 - Optimum Temperature of Zero Degrees or Less</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Protective Service Road</mat-label>
+      <input formControlName="protectiveServiceRoad" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Temperature</mat-label>
+      <input formControlName="temperature" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Temperature Unit</mat-label>
+      <mat-select formControlName="temperatureUnit">
+        <mat-option value=""></mat-option>
+        <mat-option value="fahrenheit">Fahrenheit</mat-option>
+        <mat-option value="celsius">Celsius</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox formControlName="preCooled" class="pb-3">Pre Cooled</mat-checkbox>
+    <mat-form-field appearance="outline">
+      <mat-label>Station</mat-label>
+      <input formControlName="station" matInput />
+    </mat-form-field>
+  </form>
+</mat-expansion-panel>

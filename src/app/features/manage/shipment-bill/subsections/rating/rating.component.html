@@ -1,0 +1,34 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.RATING }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Contract Number One</mat-label>
+          <input formControlName="contractNumberOne" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Formatted 1#</mat-label>
+          <input formControlName="formattedNumberOne" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Contract Number Two</mat-label>
+          <input formControlName="contractNumberTwo" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Formatted 2#</mat-label>
+          <input formControlName="formattedNumberTwo" matInput />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</mat-expansion-panel>

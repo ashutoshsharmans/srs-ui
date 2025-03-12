@@ -1,0 +1,16 @@
+@use 'styles/animation';
+@use 'styles/boostrap';
+@use 'styles/material-theme';
+@use 'styles/scrollbar';
+@use 'styles/font' as font;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: font.$font-family-primary, font.$font-family-secondary, font.$font-family-tertiary;
+}

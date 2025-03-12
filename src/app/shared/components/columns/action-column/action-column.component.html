@@ -1,0 +1,27 @@
+<div class="d-flex flex-row h-100 align-items-end">
+  @if (visibility.clone) {
+    <button class="primary" mat-icon-button (click)="clone()" matTooltip="Clone">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  }
+  @if (visibility.edit) {
+    <button mat-icon-button (click)="edit()" matTooltip="Edit">
+      <mat-icon class="text-warning">edit</mat-icon>
+    </button>
+  }
+  @if (visibility.delete) {
+    <button class="warn" mat-icon-button (click)="delete()" matTooltip="Delete">
+      <mat-icon>delete</mat-icon>
+    </button>
+  }
+  @if (visibility.add) {
+    <button class="primary" mat-icon-button (click)="add()" matTooltip="Add">
+      <mat-icon>add</mat-icon>
+    </button>
+  }
+  @if (visibility.xml) {
+    <button class="primary" mat-icon-button (click)="add()" matTooltip="View XML">
+      <mat-icon>library_books</mat-icon>
+    </button>
+  }
+</div>

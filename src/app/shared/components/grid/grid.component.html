@@ -1,0 +1,4 @@
+@if (state$ | async; as user) {
+  <ag-grid-angular class="w-100 h-100" [gridOptions]="gridOptions()" [loading]="loading()" [defaultColDef]="defaultColDef()" [theme]="theme" [rowData]="rowData()" [columnDefs]="colDef()">
+  </ag-grid-angular>
+}

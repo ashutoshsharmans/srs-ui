@@ -1,0 +1,232 @@
+@if (store$ | async; as store) {
+  <div class="d-flex flex-column w-100 h-100">
+    @if (store.bill.loadingPattern || store.bill.loadingDraft || store.bill.loading) {
+      <otc-mask [value]="true"></otc-mask>
+    }
+    <mat-drawer-container style="height: inherit">
+      <mat-drawer #drawer [mode]="mobileQuery.matches ? 'over' : 'side'" class="d-flex flex-fill" opened>
+        <otc-bill-navbar [open]="drawer.opened" (close)="drawer.toggle()" [billSections]="billSections"></otc-bill-navbar>
+      </mat-drawer>
+      <mat-drawer-content>
+        <div class="flex-fill overflow-auto">
+          <div class="d-flex p-3">
+            <mat-card class="flex-grow-1 mx-2">
+              @if (store.user.permission.searchBy) {
+                <mat-card-header class="d-flex flex-column align-items-md-baseline">
+                  <div class="w-100 d-flex justify-content-between">
+                    <h5 class="my-3"><b>Create a Shipment Request</b></h5>
+                    <button class="primary" mat-icon-button (click)="togglePanels()">
+                      <mat-icon>{{ panelExpanded ? 'close_fullscreen' : 'open_in_full' }}</mat-icon>
+                    </button>
+                  </div>
+                </mat-card-header>
+              }
+              <mat-card-content>
+                <mat-accordion multi>
+                  @if (form.controls.generalSetup) {
+                    <otc-general-setup
+                      class="general"
+                      [form]="form.controls.generalSetup"
+                      [billType]="billType"
+                      [status]="sectionStatus.generalSetup"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)">
+                    </otc-general-setup>
+                  }
+                  @if (form.controls.orderSetup) {
+                    <otc-order-setup
+                      class="orderSetup"
+                      [form]="form.controls.orderSetup"
+                      [billType]="billType"
+                      [status]="sectionStatus.orderSetup"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [update]="update"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (updateSectionsVisibility)="updateSectionsVisibility($event)"
+                      (expanded)="updateExpandState($event)">
+                    </otc-order-setup>
+                  }
+                  @if (form.controls.shipmentParties) {
+                    <otc-shipment-parties
+                      class="shipmentParties"
+                      [form]="form.controls.shipmentParties"
+                      [billType]="billType"
+                      [status]="sectionStatus.shipmentParties"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-shipment-parties>
+                  }
+                  @if (form.controls.route) {
+                    <otc-route
+                      class="route"
+                      [form]="form.controls.route"
+                      [billType]="billType"
+                      [status]="sectionStatus.route"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-route>
+                  }
+                  @if (form.controls.emptyReverse) {
+                    <otc-empty-reverse
+                      class="emptyReverse"
+                      [form]="form.controls.emptyReverse"
+                      [billType]="billType"
+                      [status]="sectionStatus.emptyReverse"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-empty-reverse>
+                  }
+                  @if (form.controls.commodity) {
+                    <otc-commodity
+                      class="commodity"
+                      [form]="form.controls.commodity"
+                      [billType]="billType"
+                      [status]="sectionStatus.commodity"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [update]="update"
+                      [viewOnly]="viewOnly"
+                      (loadData)="loadAction($event)"
+                      (updateSectionsVisibility)="updateSectionsVisibility($event)"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-commodity>
+                  }
+                  @if (form.controls.hazardous) {
+                    <otc-hazardous
+                      class="hazardous"
+                      [form]="form.controls.hazardous"
+                      [billType]="billType"
+                      [status]="sectionStatus.hazardous"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-hazardous>
+                  }
+                  @if (form.controls.commodityLading) {
+                    <otc-commodity-lading
+                      [form]="form.controls.commodityLading"
+                      [billType]="billType"
+                      [status]="sectionStatus.commodityLading"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)">
+                    </otc-commodity-lading>
+                  }
+                  @if (form.controls.vin) {
+                    <otc-vin
+                      class="vin"
+                      [form]="form.controls.vin"
+                      [billType]="billType"
+                      [status]="sectionStatus.vin"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-vin>
+                  }
+                  @if (form.controls.shipmentReferences) {
+                    <otc-shipment-references
+                      class="shipmentReferences"
+                      [form]="form.controls.shipmentReferences"
+                      [billType]="billType"
+                      [status]="sectionStatus.shipmentReferences"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-shipment-references>
+                  }
+                  @if (form.controls.rating) {
+                    <otc-rating
+                      class="rating"
+                      [form]="form.controls.rating"
+                      [billType]="billType"
+                      [status]="sectionStatus.rating"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-rating>
+                  }
+                  @if (form.controls.customs) {
+                    <otc-customs-cargo-manifest
+                      class="customs"
+                      [form]="form.controls.customs"
+                      [billType]="billType"
+                      [status]="sectionStatus.customs"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-customs-cargo-manifest>
+                  }
+                  @if (form.controls.protectiveService) {
+                    <otc-protective-service
+                      class="protectiveService"
+                      [form]="form.controls.protectiveService"
+                      [billType]="billType"
+                      [status]="sectionStatus.protectiveService"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-protective-service>
+                  }
+                  @if (form.controls.otmaLoadUp) {
+                    <otc-otma-load-up
+                      class="otmaLoadUp"
+                      [form]="form.controls.otmaLoadUp"
+                      [billType]="billType"
+                      [status]="sectionStatus.otmaLoadUp"
+                      [shipmentData]="store.bill"
+                      [expand]="expandAll"
+                      [viewOnly]="viewOnly"
+                      [permission]="store.user.permission"
+                      (expanded)="updateExpandState($event)"></otc-otma-load-up>
+                  }
+                </mat-accordion>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+    <mat-card class="d-flex flex-row justify-content-between px-2 py-1 border-top border-1 align-items-center">
+      <div class="d-flex align-items-center">
+        <button mat-icon-button aria-label="Arrow Button" (click)="drawer.toggle()">
+          <mat-icon>
+            @if (drawer.opened) {
+              keyboard_arrow_left
+            } @else {
+              keyboard_arrow_right
+            }
+          </mat-icon>
+        </button>
+        @if (!this.viewOnly) {
+          <button class="warn" mat-flat-button (click)="delete()">Delete</button>
+          <button class="accent mx-2" mat-stroked-button (click)="setup()">Clear</button>
+        }
+      </div>
+      @if (!this.viewOnly) {
+        <div>
+          <button [disabled]="!form.dirty" class="accent mx-2" mat-flat-button (click)="save()">Save Draft</button>
+          <button [disabled]="form.invalid" class="accent" mat-flat-button (click)="submit()">Submit</button>
+        </div>
+      }
+    </mat-card>
+  </div>
+}

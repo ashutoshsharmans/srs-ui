@@ -1,0 +1,10 @@
+@use './color' as color;
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color.$otc-light;
+  border-radius: 0.31rem;
+}

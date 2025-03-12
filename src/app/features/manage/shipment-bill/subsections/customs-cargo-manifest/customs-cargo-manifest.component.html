@@ -1,0 +1,215 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.CUSTOMS }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <h5 class="my-3">
+      Manifest Data
+      <mat-icon class="warn" aria-hidden="false" [matBadge]="form().controls.manifests.length">reorder</mat-icon>
+    </h5>
+    @for (manifest of form().controls.manifests.controls; track manifest.controls; let index = $index) {
+      <div [formGroup]="manifest" class="d-flex flex-column flex-md-wrap">
+        <h6>Manifest Data {{ index + 1 }}</h6>
+        <mat-form-field appearance="outline">
+          <mat-label>Vessel</mat-label>
+          <input formControlName="vessel" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Manifest Date</mat-label>
+          <input formControlName="manifestDate" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Booking Number</mat-label>
+          <input formControlName="bookingNumber" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Current Carrier</mat-label>
+          <input formControlName="bookingNumber" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Previous Carrier</mat-label>
+          <input formControlName="previousCarrier" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Port Function</mat-label>
+          <mat-select formControlName="portFunction">
+            <mat-option value=""></mat-option>
+            <mat-option value="A1">Port of Discharge</mat-option>
+            <mat-option value="A1">Port of Loading</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Previous Carrier</mat-label>
+          <input formControlName="previousCarrier" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Dock Sail Date</mat-label>
+          <input formControlName="dockSailDate" matInput [matDatepicker]="dockSailDatePicker" />
+          <mat-datepicker-toggle matIconSuffix [for]="dockSailDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #dockSailDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Voyage Number</mat-label>
+          <input formControlName="voyageNumber" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>State</mat-label>
+          <input formControlName="state" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Country</mat-label>
+          <input formControlName="country" matInput />
+        </mat-form-field>
+      </div>
+    }
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="toggleSecondManifestData()">
+        {{ form().controls.manifests.length > 1 ? 'Remove' : 'Add' }} Second Manifest Data
+        <mat-icon>
+          @if (form().controls.manifests.length > 1) {
+            close
+          } @else {
+            add
+          }
+        </mat-icon>
+      </button>
+    }
+    <h5 class="my-3">
+      In-Bond Data
+      <mat-icon class="warn" aria-hidden="false" [matBadge]="'0'">reorder</mat-icon>
+    </h5>
+    @for (inBond of form().controls.inBonds.controls; track inBond.controls; let index = $index) {
+      <div [formGroup]="inBond" class="d-flex flex-column flex-md-wrap">
+        <h6>In-Bond Data {{ index + 1 }}</h6>
+        <mat-form-field appearance="outline">
+          <mat-label>In-Bond Type</mat-label>
+          <input formControlName="inBondType" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Export of Term Location ID (For 61 or 62)</mat-label>
+          <input formControlName="exportOfTermLocationId" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Destination Location ID</mat-label>
+          <input formControlName="destinationLocationId" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Customs Shipment Value</mat-label>
+          <input formControlName="customsShipmentValue" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Entry Number</mat-label>
+          <input formControlName="entryNumber" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>In-Bond Control Number</mat-label>
+          <input formControlName="inBondControlNumber" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>In-Bond Control Number</mat-label>
+          <input formControlName="inBondControlNumber" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Bond Reference</mat-label>
+          <mat-select formControlName="bondReference">
+            <mat-option value=""></mat-option>
+            <mat-option value="A1">Railroad Bond</mat-option>
+            <mat-option value="A1">Shippers Bond</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>IRS #, SCAC OR RR (For RR Use Rail Mar)</mat-label>
+          <input formControlName="irsScaccRR" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>US Customs and Border Protection BOL #</mat-label>
+          <input formControlName="usCustomsAndBorderProtectionBOL" matInput />
+        </mat-form-field>
+      </div>
+    }
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="toggleSecondInBondData()">
+        {{ form().controls.inBonds.length > 1 ? 'Remove' : 'Add' }} Second In-Bond Data
+        <mat-icon>
+          @if (form().controls.inBonds.length > 1) {
+            close
+          } @else {
+            add
+          }
+        </mat-icon>
+      </button>
+    }
+    @for (additionalParty of form().controls.customParties.controls; track additionalParty; let index = $index) {
+      <div [formGroup]="additionalParty">
+        <h5 class="my-3">Additional Party {{ index + 1 }}</h5>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Customer Id</mat-label>
+            <input formControlName="customerId" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Address 1</mat-label>
+            <input formControlName="addressOne" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Address 2</mat-label>
+            <input formControlName="addressTwo" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>City</mat-label>
+            <input formControlName="city" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>State</mat-label>
+            <input formControlName="state" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Zip</mat-label>
+            <input formControlName="zip" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Contact</mat-label>
+            <input formControlName="city" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input formControlName="state" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Entity Id Qualifier</mat-label>
+            <input formControlName="entityIdQualifier" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Entity Id</mat-label>
+            <input formControlName="entityId" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+    }
+    @if (!this.viewOnly()) {
+      @if (form().controls.customParties.length < 2) {
+        <button class="primary my-2" mat-stroked-button (click)="addCustomParty()">
+          Add Customs Party
+          <mat-icon>add</mat-icon>
+        </button>
+      }
+    }
+  </form>
+</mat-expansion-panel>

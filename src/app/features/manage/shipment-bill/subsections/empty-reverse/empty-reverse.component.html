@@ -1,0 +1,147 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.EMPTY_REVERSE }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <mat-form-field appearance="outline">
+      <mat-label>Consignee</mat-label>
+      <input formControlName="emptyReverseConsignee" matInput />
+    </mat-form-field>
+    <div class="container m-0 py-3">
+      <div class="row">
+        <div class="col-1">
+          <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+            <mat-icon class="text-light">horizontal_rule</mat-icon>
+            <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+          </div>
+        </div>
+        <div class="col-11">
+          <mat-form-field appearance="outline">
+            <mat-label>Road</mat-label>
+            <input formControlName="emptyReverseRoad" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+
+      @for (segment of form().controls.emptyReverseSegments.controls; track segment.controls; let index = $index) {
+        <div [formGroup]="segment" class="row">
+          <div class="col-1">
+            <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+              <mat-icon class="text-light">data_usage</mat-icon>
+              <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+            </div>
+          </div>
+          <div class="col-11">
+            <mat-form-field appearance="outline">
+              <mat-label>Junction</mat-label>
+              <input formControlName="junction" matInput />
+            </mat-form-field>
+            @if (!this.viewOnly()) {
+              <button class="warn" matSuffix mat-icon-button aria-label="Clear" (click)="removeSegment(index)">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+          </div>
+        </div>
+        <div [formGroup]="segment" class="row">
+          <div class="col-1">
+            <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+              <mat-icon class="text-light">horizontal_rule</mat-icon>
+              <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+            </div>
+          </div>
+          <div class="col-11">
+            <mat-form-field appearance="outline">
+              <mat-label>Road</mat-label>
+              <input formControlName="road" matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      }
+      <div class="row">
+        <div class="col-1">
+          <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+            <mat-icon class="text-light">horizontal_rule</mat-icon>
+            <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+          </div>
+        </div>
+        <div class="col-11">
+          @if (!this.viewOnly()) {
+            <button class="primary my-2" mat-stroked-button (click)="addSegment()">
+              Add Segment
+              <mat-icon>add</mat-icon>
+            </button>
+          }
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+            <mat-icon class="text-light">location_on</mat-icon>
+          </div>
+        </div>
+        <div class="col-11">
+          <mat-form-field appearance="outline">
+            <mat-label>Destination City</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      @if (!form().controls.destinationSwitch) {
+        <div class="row">
+          <div class="col-1">
+            <div class="h-100 d-flex flex-column align-items-center justify-content-center p-0 m-0">
+              <mat-icon class="text-light">album</mat-icon>
+            </div>
+          </div>
+          <div class="col-11">
+            @if (!this.viewOnly()) {
+              <button class="primary my-2" mat-stroked-button (click)="toggleDestinationSwitch()">
+                Add Destination Switch
+                <mat-icon>add</mat-icon>
+              </button>
+            }
+          </div>
+        </div>
+      } @else {
+        @if (form().controls.destinationSwitch) {
+          <div [formGroup]="form().controls.destinationSwitch!" class="row">
+            <div class="col-1">
+              <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+                <mat-icon class="text-light">data_usage</mat-icon>
+                <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+              </div>
+            </div>
+            <div class="col-11">
+              <mat-form-field appearance="outline">
+                <mat-label>Junction</mat-label>
+                <input formControlName="junction" matInput />
+              </mat-form-field>
+              <button class="warn" matSuffix mat-icon-button aria-label="Clear" (click)="toggleDestinationSwitch()">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div [formGroup]="form().controls.destinationSwitch!" class="row">
+            <div class="col-1">
+              <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+                <mat-icon class="text-light">location_on</mat-icon>
+              </div>
+            </div>
+            <div class="col-11">
+              <mat-form-field appearance="outline">
+                <mat-label>Road</mat-label>
+                <input formControlName="road" matInput />
+              </mat-form-field>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </form>
+</mat-expansion-panel>

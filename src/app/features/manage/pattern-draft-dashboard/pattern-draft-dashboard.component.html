@@ -1,0 +1,27 @@
+<mat-card class="w-100 h-100">
+  <mat-card-header>
+    <mat-toolbar-row class="d-flex flex-column flex-md-row flex-md-wrap align-items-stretch justify-content-between h-auto w-100">
+      <mat-form-field appearance="outline">
+        <mat-label>Type</mat-label>
+        <mat-select [(value)]="type" (selectionChange)="setup()">
+          <mat-option value="DRAFTS">Drafts</mat-option>
+          <mat-option value="PATTERNS">Patterns</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Selection Customer</mat-label>
+        <mat-select value="0010111586">
+          <mat-option value="0010111586">0010111586</mat-option>
+          <mat-option value="0010111586">0010111588</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar-row>
+  </mat-card-header>
+  <mat-card-content class="w-100 h-100">
+    @if (type === 'PATTERNS') {
+      <otc-grid [colDef]="patternColDefs" [rowData]="store.patterns()" [loading]="store.loadingPatterns()" [gridOptions]="gridOptions"></otc-grid>
+    } @else {
+      <otc-grid [colDef]="draftColDefs" [rowData]="store.drafts()" [loading]="store.loadingDrafts()" [gridOptions]="gridOptions"></otc-grid>
+    }
+  </mat-card-content>
+</mat-card>

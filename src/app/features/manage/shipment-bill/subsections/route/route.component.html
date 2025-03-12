@@ -1,0 +1,254 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.ROUTE }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <mat-form-field appearance="outline">
+      <mat-label>Type of Route</mat-label>
+      <input formControlName="routeType" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Pay Method</mat-label>
+      <input formControlName="payMethod" matInput />
+    </mat-form-field>
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="toggleOriginFrom()">
+        Origin from
+        <mat-icon>
+          @if (form().controls.originFromRoad && form().controls.originFromStation) {
+            close
+          } @else {
+            add
+          }
+        </mat-icon>
+      </button>
+    }
+    @if (form().controls.originFromRoad && form().controls.originFromStation) {
+      <div class="d-flex flex-column shadow rounded-top px-2 pt-3 mb-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Origin From Road</mat-label>
+          <input formControlName="originFromRoad" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Origin From Station</mat-label>
+          <input formControlName="originFromRoad" matInput />
+        </mat-form-field>
+      </div>
+    }
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="toggleOriginSwitch()">
+        Origin switch
+        <mat-icon>
+          @if (form().controls.originSwitchRoad) {
+            close
+          } @else {
+            add
+          }
+        </mat-icon>
+      </button>
+    }
+    @if (form().controls.originSwitchRoad) {
+      <div class="shadow rounded-top px-2 pt-3 mb-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Origin From Road</mat-label>
+          <input formControlName="originSwitchRoad" matInput />
+        </mat-form-field>
+      </div>
+    }
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="toggleOriginJunctionSettlement()">
+        Origin junction settlement
+        <mat-icon>
+          @if (form().controls.originSettlementJunction && form().controls.originSettlementRoad) {
+            close
+          } @else {
+            add
+          }
+        </mat-icon>
+      </button>
+    }
+    @if (form().controls.originSettlementJunction && form().controls.originSettlementRoad) {
+      <div class="shadow rounded-top px-2 pt-3 mb-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Origin Settlement Road</mat-label>
+          <input formControlName="originSettlementJunction" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Origin Settlement Junction</mat-label>
+          <input formControlName="originSettlementJunction" matInput />
+        </mat-form-field>
+      </div>
+    }
+    <div class="container m-0 py-3">
+      <div class="row">
+        <div class="col-1">
+          <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+            <mat-icon class="text-light">train</mat-icon>
+            <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+          </div>
+        </div>
+        <div class="col-11">
+          <mat-form-field appearance="outline">
+            <mat-label>Origin</mat-label>
+            <input formControlName="origin" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+            <mat-icon class="text-light">horizontal_rule</mat-icon>
+            <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+          </div>
+        </div>
+        <div class="col-11">
+          <mat-form-field appearance="outline">
+            <mat-label>Road</mat-label>
+            <input formControlName="road" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      @for (segment of form().controls.segments.controls; track segment; let index = $index) {
+        <div class="row">
+          <div class="col-1">
+            <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+              <mat-icon class="text-light">data_usage</mat-icon>
+              <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+            </div>
+          </div>
+          <div class="col-11">
+            <mat-form-field appearance="outline">
+              <mat-label>Junction</mat-label>
+              <input matInput />
+            </mat-form-field>
+            @if (!this.viewOnly()) {
+              <button class="warn" matSuffix mat-icon-button aria-label="Clear" (click)="removeSegment(index)">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1">
+            <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+              <mat-icon class="text-light">horizontal_rule</mat-icon>
+              <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+            </div>
+          </div>
+          <div class="col-11">
+            <mat-form-field appearance="outline">
+              <mat-label>Road</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      }
+      <div class="row">
+        <div class="col-1">
+          <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+            <mat-icon class="text-light">horizontal_rule</mat-icon>
+            <hr class="text-light p-0 m-0 border border-dark flex-grow-1" />
+          </div>
+        </div>
+        <div class="col-11">
+          @if (!this.viewOnly()) {
+            <button class="primary my-2" mat-stroked-button (click)="addSegment()">
+              Add Segment
+              <mat-icon>add</mat-icon>
+            </button>
+          }
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <div class="h-100 d-flex flex-column align-items-center p-0 m-0">
+            <mat-icon class="text-light">location_on</mat-icon>
+          </div>
+        </div>
+        <div class="col-11">
+          <mat-form-field appearance="outline">
+            <mat-label>Destination</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="toggleDestinationBeyond()">
+        Destination beyond
+        <mat-icon>
+          @if (form().controls.destinationBeyondLocation && form().controls.destinationBeyondRoad) {
+            close
+          } @else {
+            add
+          }
+        </mat-icon>
+      </button>
+    }
+    @if (form().controls.destinationBeyondLocation && form().controls.destinationBeyondRoad) {
+      <div class="d-flex flex-column shadow rounded-top px-2 pt-3 mb-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Destination Beyond Road</mat-label>
+          <input formControlName="destinationBeyondLocation" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Destination Beyond Location</mat-label>
+          <input formControlName="destinationBeyondRoad" matInput />
+        </mat-form-field>
+      </div>
+    }
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="toggleDestinationSwitch()">
+        Destination switch
+        <mat-icon>
+          @if (form().controls.destinationSwitchJunction && form().controls.destinationSwitchRoad) {
+            close
+          } @else {
+            add
+          }
+        </mat-icon>
+      </button>
+    }
+    @if (form().controls.destinationSwitchJunction && form().controls.destinationSwitchRoad) {
+      <div class="d-flex flex-column shadow rounded-top px-2 pt-3 mb-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Destination Switch Junction</mat-label>
+          <input formControlName="destinationSwitchJunction" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Destination Switch Road</mat-label>
+          <input formControlName="destinationSwitchRoad" matInput />
+        </mat-form-field>
+      </div>
+    }
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="toggleDestinationJunctionSettlement()">
+        Destination junction settlement
+        <mat-icon>
+          @if (form().controls.destinationJunctionSettlementJunction && form().controls.destinationJunctionSettlementRoad) {
+            close
+          } @else {
+            add
+          }
+        </mat-icon>
+      </button>
+    }
+    @if (form().controls.destinationJunctionSettlementJunction && form().controls.destinationJunctionSettlementRoad) {
+      <div class="d-flex flex-column shadow rounded-top px-2 pt-3 mb-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Destination Junction Settlement Junction</mat-label>
+          <input formControlName="destinationSwitchJunction" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Destination Junction Settlement Road</mat-label>
+          <input formControlName="destinationSwitchRoad" matInput />
+        </mat-form-field>
+      </div>
+    }
+  </form>
+</mat-expansion-panel>

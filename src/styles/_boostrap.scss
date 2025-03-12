@@ -1,0 +1,12 @@
+@use './color' as color;
+
+// Variable overrides
+$primary: color.$otc-primary;
+$secondary: color.$otc-accent;
+$success: color.$otc-success;
+$danger: color.$otc-danger;
+$warning: color.$otc-warning;
+$light: color.$otc-light;
+$dark: color.$otc-dark;
+
+@import 'bootstrap/scss/bootstrap';

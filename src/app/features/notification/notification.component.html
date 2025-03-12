@@ -1,0 +1,17 @@
+<div class="p-1">
+  <div class="border border-primary pt-2 pb-1 w-100 text-center"><b>Notifications</b></div>
+  <div class="">
+    @for (notification of notifications; track notification.message) {
+      <div class="d-flex align-items-center">
+        <button disabled mat-icon-button>
+          @if (notification.type === 'info') {
+            <mat-icon class="text-primary">info</mat-icon>
+          } @else {
+            <mat-icon class="text-warning">warning</mat-icon>
+          }
+        </button>
+        <span class="text-truncate">{{ notification.message }}</span>
+      </div>
+    }
+  </div>
+</div>

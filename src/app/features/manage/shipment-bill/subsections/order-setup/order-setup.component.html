@@ -1,0 +1,327 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.ORDER_SETUP }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <mat-form-field appearance="outline">
+      <mat-label>Order Option</mat-label>
+      <mat-select formControlName="orderOption" (selectionChange)="updateSectionVisibilityOnOrderSelect()">
+        @if (permission().orderOptionReship) {
+          <mat-option value="RESHIP">Reship</mat-option>
+        }
+        @if (permission().orderOptionEmptyRevenue) {
+          <mat-option value="EMPTY_REVENUE">Empty Non-Revenue</mat-option>
+        }
+        @if (permission().orderOptionEmptyNoneRevenue) {
+          <mat-option value="EMPTY_NON_REVENUE">Empty Non-Revenue</mat-option>
+        }
+        @if (permission().orderOptionLoadedMerchandise) {
+          <mat-option value="LOADED_MERCHANDISE">Loaded Merchandise</mat-option>
+        }
+        @if (permission().orderOptionUnitTrain) {
+          <mat-option value="UNIT_TRAIN">Unit Train</mat-option>
+        }
+        @if (permission().orderOptionProperToAccrueMerchandise) {
+          <mat-option value="PROPER_TO_ACCRUE_MERCHANDISE">Proper to Accrue - Merchandise</mat-option>
+        }
+        @if (permission().orderOptionEmptyRevenue) {
+          <mat-option value="MISCELLANEOUS_BILL">Empty Revenue</mat-option>
+        }
+        @if (permission().orderOptionRailHighway) {
+          <mat-option value="RAIL_HIGHWAY">Rail-Highway</mat-option>
+        }
+        @if (permission().orderOptionProperToAccrueRailHighway) {
+          <mat-option value="PROPER_TO_ACCRUE_RAIL_HIGHWAY">Proper To Accrue - Rail-Highway</mat-option>
+        }
+        @if (permission().orderOptionRailManifest) {
+          <mat-option value="RAIL_MANIFEST">Rail Manifest</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    @if (permission().caseNumber) {
+      <h5 class="my-3">
+        Case Numbers
+        <mat-icon class="warn" aria-hidden="false" [matBadge]="1">reorder</mat-icon>
+      </h5>
+      <div class="shadow w-100 rounded-top px-2 pt-3">
+        @for (caseNumber of form().controls.caseNumbers.controls; track caseNumber.controls; let index = $index) {
+          <div [formGroup]="caseNumber" class="shadow d-flex justify-content-between px-2 my-2">
+            <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+              <mat-form-field appearance="outline">
+                <mat-label>Case Number</mat-label>
+                <input formControlName="caseNumber" matInput />
+              </mat-form-field>
+            </div>
+            @if (index !== 0 && !this.viewOnly()) {
+              <button class="warn" mat-icon-button (click)="removeCaseNumber(index)">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+          </div>
+        }
+        <div class="d-flex justify-content-center">
+          @if (!this.viewOnly()) {}
+          <button class="primary" matTooltip="Add Case Number" mat-icon-button (click)="addCaseNumber()" [disabled]="viewOnly() || form().controls.caseNumbers.length > 1">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+    }
+    @if (form().controls.previousSerialNumber) {
+      <mat-form-field appearance="outline">
+        <mat-label>Previous Serial</mat-label>
+        <input formControlName="previousSerialNumber" matInput />
+      </mat-form-field>
+    }
+    <h5 class="my-3">Order Information</h5>
+    <mat-form-field appearance="outline">
+      <mat-label>Weight Agreement</mat-label>
+      <mat-select formControlName="weightAgreement">
+        @if (form().controls.orderOption.value === orderOption.PROPER_TO_ACCRUE_MERCHANDISE || form().controls.orderOption.value === orderOption.PROPER_TO_ACCRUE_RAIL_HIGHWAY) {
+          <mat-option value="A">Shipper Weight</mat-option>
+          <mat-option value="P">Per Car</mat-option>
+        } @else if (form().controls.orderOption.value === orderOption.EMPTY_REVENUE) {
+          <mat-option value="P">Per Car</mat-option>
+        } @else {
+          <mat-option value="A">Shipper Weight</mat-option>
+          <mat-option value="D">Destination Weight</mat-option>
+          <mat-option value="N">No Weight Required</mat-option>
+          <mat-option value="O">Official Weight</mat-option>
+          <mat-option value="R">Railroad to Weigh</mat-option>
+          <mat-option value="S">Shipper Certified Scale</mat-option>
+          <mat-option value="P">Per Car</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Shipment Type</mat-label>
+      <mat-select formControlName="shipmentType">
+        <mat-option value="l">Loaded</mat-option>
+        <mat-option value="e">Empty</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Shipper Bol Number</mat-label>
+      @if (form().controls.shipperBOLNumber.pending) {
+        <mat-spinner class="me-2" matSuffix diameter="16"></mat-spinner>
+      }
+      <input formControlName="shipperBOLNumber" matInput />
+      @if (form().controls.shipperBOLNumber.errors?.['bolNumber']) {
+        <mat-error>Valid BOL Number required</mat-error>
+      }
+    </mat-form-field>
+    <div class="pb-3 d-flex flex-column flex-md-row flex-md-wrap">
+      <mat-form-field appearance="outline" class="pe-1">
+        <mat-label>Shipper BOL date</mat-label>
+        <input formControlName="shipperBOLDate" matInput [matDatepicker]="shipperBOLDatePicker" />
+        <mat-datepicker-toggle matIconSuffix [for]="shipperBOLDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #shipperBOLDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Pick a time</mat-label>
+        <input formControlName="shipperBOLTime" matInput [matTimepicker]="shipperBOLTimePicker" />
+        <mat-timepicker-toggle matIconSuffix [for]="shipperBOLTimePicker">
+          <mat-icon matTimepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-timepicker-toggle>
+        <mat-timepicker #shipperBOLTimePicker />
+      </mat-form-field>
+    </div>
+    <mat-checkbox formControlName="sectionSeven" class="pb-3">Section 7</mat-checkbox>
+    <div class="d-flex flex-row justify-content-between w-100">
+      <h5 class="my-3">
+        Pieces of Equipments
+        <mat-icon class="warn" aria-hidden="false" [matBadge]="form().controls.piecesOfEquipment.length">reorder</mat-icon>
+      </h5>
+      @if (!this.viewOnly()) {
+        <button class="accent" matSuffix mat-flat-button aria-label="Clear" (click)="resetPiecesOfEquipments()">
+          Reset All
+          <mat-icon>settings_backup_restore</mat-icon>
+        </button>
+      }
+    </div>
+    <div class="shadow w-100 rounded-top px-2 pt-3 mb-3">
+      @if (form().controls.piecesOfEquipment.errors?.['duplicateEquipment']) {
+        <mat-error class="py-1">
+          <b>Duplicate Equipment Found ({{ form().controls.piecesOfEquipment.errors?.['duplicateEquipment'] }})</b>
+        </mat-error>
+        <button class="my-3" matSuffix mat-stroked-button aria-label="Delete Duplicate" (click)="removeDuplicates()">
+          Remove Duplicate(s)
+          <mat-icon class="text-warning">auto_fix_normal</mat-icon>
+        </button>
+      }
+      @let piecesOfEquipment = form().controls.piecesOfEquipment;
+      @if (form().controls.overwriteAllPOEs.value || !piecesOfEquipment.valid) {
+        <mat-checkbox (change)="updateEquipmentIdValidations()" matTooltipPosition="above" matTooltip="Overwrite All Equipments" formControlName="overwriteAllPOEs" class="pb-3">
+          Overwrite All
+        </mat-checkbox>
+      }
+      @for (equipment of form().controls.piecesOfEquipment.controls; track equipment.controls.equipmentId; let index = $index) {
+        <div [formGroup]="equipment" class="shadow my-2">
+          <div class="d-flex justify-content-between px-2">
+            <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+              <div class="d-flex flex-column flex-md-row flex-md-wrap" [formGroup]="equipment.controls.equipmentId">
+                <mat-form-field class="max-w-px-md-100" appearance="outline">
+                  <mat-label>Equipment Initial</mat-label>
+                  @if (equipment.controls.equipmentId.pending) {
+                    <mat-spinner class="me-2" matSuffix diameter="16"></mat-spinner>
+                  }
+                  <input formControlName="initial" matInput />
+                </mat-form-field>
+                <mat-form-field class="max-w-px-md-180 px-1" appearance="outline">
+                  <mat-label>Equipment Number</mat-label>
+                  <input formControlName="number" matInput />
+                  @if (equipment.controls.equipmentId.pending) {
+                    <mat-spinner class="me-2" matSuffix diameter="16"></mat-spinner>
+                  }
+                </mat-form-field>
+              </div>
+              <mat-form-field class="max-w-px-md-140 px-1" appearance="outline">
+                <mat-label>Net Weight</mat-label>
+                <input (change)="updateTotalNetWeight()" formControlName="netWeight" matInput />
+              </mat-form-field>
+              <mat-form-field class="max-w-px-md-140 px-1" appearance="outline">
+                <mat-label>Tare Weight</mat-label>
+                <input formControlName="tareWeight" matInput />
+              </mat-form-field>
+              <mat-form-field class="max-w-px-md-140 px-1" appearance="outline">
+                <mat-label>Gross Weight</mat-label>
+                <input formControlName="grossWeight" matInput />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Seal Numbers <i>(add up to 20 values)</i></mat-label>
+                <textarea formControlName="sealNumber" matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+              </mat-form-field>
+            </div>
+            @if (index !== 0 && !this.viewOnly()) {
+              <button class="warn" mat-icon-button (click)="removeEquipment(index)">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+          </div>
+          <div [formGroup]="equipment.controls.equipmentId" class="px-2 pb-1 d-flex flex-row align-items-baseline">
+            @if (equipment.controls.equipmentId.errors || equipment.controls.equipmentId.controls.overwrite?.value) {
+              <mat-checkbox matTooltipPosition="above" matTooltip="Overwrite Equipment ID" formControlName="overwrite" class="pb-3">
+                <b [ngClass]="{ 'text-warning': equipment.controls.equipmentId.errors }">Equipment ID Not Found</b>
+              </mat-checkbox>
+            }
+          </div>
+        </div>
+      }
+      @if (form().controls.piecesOfEquipment.length > 1) {
+        <div class="d-flex justify-content-end">
+          <div class="my-2">
+            <h5 class="my-3">TOTAL NET WEIGHT</h5>
+            <mat-form-field class="mx-w-px-md-125 px-1" appearance="outline">
+              <input formControlName="totalNetWeight" readonly matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      }
+      <div class="d-flex justify-content-center">
+        @if (!this.viewOnly()) {
+          <button class="primary" matTooltip="Add Equipment" mat-icon-button (click)="addEquipment()" [disabled]="viewOnly() || form().controls.piecesOfEquipment.length > 9">
+            <mat-icon>add</mat-icon>
+          </button>
+        }
+      </div>
+      <div class="d-flex flex-column align-items-md-baseline">
+        <h5 class="my-3">
+          Paste Multiple Equipments
+          <mat-icon aria-hidden="false" class="text-primary">info</mat-icon>
+        </h5>
+        <mat-form-field appearance="outline">
+          <mat-label>Paste Multiple Equipments</mat-label>
+          <textarea formControlName="multipleEquipments" matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    @if (this.form().controls.idlerEquipments.length < 2 && !this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="addIdlerEquipment()">
+        Add Idler Equipment
+        <mat-icon>add</mat-icon>
+      </button>
+    }
+    @for (idler of form().controls.idlerEquipments.controls; track idler.controls; let index = $index) {
+      <h5 class="my-3">Idler Equipment {{ index + 1 }}</h5>
+      <div [formGroup]="idler" class="d-flex align-items-baseline py-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Initial</mat-label>
+          <input formControlName="idlerInitial" matInput />
+        </mat-form-field>
+        <b class="px-2">-</b>
+        <mat-form-field appearance="outline">
+          <mat-label>Number</mat-label>
+          <input formControlName="idlerNumber" matInput />
+        </mat-form-field>
+        @if (!this.viewOnly()) {
+          <button class="warn" matTooltip="Remove Idler Equipment" mat-icon-button (click)="removeIdlerEquipment(index)">
+            <mat-icon>close</mat-icon>
+          </button>
+        }
+      </div>
+    }
+    @if (form().controls.manifestEquipment) {
+      <h5 class="my-3">Manifest Equipment</h5>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap" [formGroup]="form().controls.manifestEquipment!">
+        <mat-form-field class="pe-1" appearance="outline">
+          <mat-label>Initial</mat-label>
+          <input formControlName="initial" matInput />
+        </mat-form-field>
+        <mat-form-field class="pe-1" appearance="outline">
+          <mat-label>Number</mat-label>
+          <input formControlName="number" matInput />
+        </mat-form-field>
+      </div>
+    }
+    <mat-form-field appearance="outline">
+      <mat-label>Weight Qualifier</mat-label>
+      <mat-select formControlName="weightQualifier">
+        <mat-option value="n">None</mat-option>
+        <mat-option value="a">Actual Net</mat-option>
+        <mat-option value="e">Estimated Net</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="pb-3">
+      <mat-form-field class="pt-2 pe-1" appearance="outline">
+        <mat-label>Deliver By Date</mat-label>
+        <input formControlName="deliveryDate" matInput [matDatepicker]="deliverDatePicker" />
+        <mat-datepicker-toggle matIconSuffix [for]="deliverDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #deliverDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Pick a time</mat-label>
+        <input formControlName="deliveryTime" matInput [matTimepicker]="deliveryTimePicker" />
+        <mat-timepicker-toggle matIconSuffix [for]="deliveryTimePicker">
+          <mat-icon matTimepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-timepicker-toggle>
+        <mat-timepicker #deliveryTimePicker />
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Waybill Number</mat-label>
+      <input formControlName="waybillNumber" matInput />
+    </mat-form-field>
+    <mat-form-field class="py-2 pe-1" appearance="outline">
+      <mat-label>Waybill Date</mat-label>
+      <input formControlName="waybillDate" matInput [matDatepicker]="waybillDatePicker" />
+      <mat-datepicker-toggle matIconSuffix [for]="waybillDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #waybillDatePicker></mat-datepicker>
+    </mat-form-field>
+    <h5 class="my-3">Distribute Equipment Weight</h5>
+    <div class="d-flex flex-column flex-md-row flex-md-wrap">
+      <mat-form-field class="mx-w-px-md-125 px-1" appearance="outline">
+        <mat-label>Total Weight</mat-label>
+        <input formControlName="distributedTotalWeight" matInput />
+      </mat-form-field>
+      <mat-radio-group formControlName="distributedWeightType" aria-label="Select an option">
+        <mat-radio-button value="net">Net</mat-radio-button>
+        <mat-radio-button value="gross">Gross</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </form>
+</mat-expansion-panel>

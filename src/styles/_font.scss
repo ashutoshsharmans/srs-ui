@@ -1,0 +1,27 @@
+$font-family-primary: 'Lato-Regular';
+$font-family-secondary: Roboto;
+$font-family-tertiary: 'san-serif';
+
+@font-face {
+  font-family: $font-family-primary;
+  src: url('/assets/fonts/Lato-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato-Light';
+  src: url('/assets/fonts/Lato-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato-Thin';
+  src: url('/assets/fonts/Lato-Thin.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

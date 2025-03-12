@@ -1,0 +1,14 @@
+<mat-sidenav-container class="h-100">
+  <mat-sidenav #sideNav mode="over" [fixedInViewport]="mobileQuery.matches" class="w-75">
+    <otc-mobile-navbar (linkClick)="sideNav.toggle()"></otc-mobile-navbar>
+  </mat-sidenav>
+  <mat-sidenav-content class="d-flex flex-column overflow-hidden bg-beige h-100">
+    <otc-navbar [mobile]="mobileQuery.matches" (toggleMenu)="sideNav.toggle()"></otc-navbar>
+    @if (banner) {
+      <otc-banner (closeBanner)="banner = false"></otc-banner>
+    }
+    <div #mainWrapper class="d-flex flex-column flex-fill overflow-auto h-100">
+      <router-outlet (activate)="mainWrapper.scrollTop = 0"></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

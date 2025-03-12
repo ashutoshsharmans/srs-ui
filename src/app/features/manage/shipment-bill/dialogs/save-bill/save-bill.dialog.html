@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Save Draft</h2>
+<mat-dialog-content>
+  <form [formGroup]="form" class="my-2">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input formControlName="draftName" matInput />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex flex-row justify-content-between align-items-center">
+  <button class="warn" mat-stroked-button matDialogClose>Cancel</button>
+  <button class="secondary" [disabled]="!form.valid" mat-flat-button matDialogClose>Save</button>
+</mat-dialog-actions>

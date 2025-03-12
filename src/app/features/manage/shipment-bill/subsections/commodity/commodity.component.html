@@ -1,0 +1,90 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.COMMODITY }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <h5 class="my-3">
+      STCC
+      <mat-icon class="warn" aria-hidden="false" [matBadge]="form().controls.hazSTCCs.length > 0 ? form().controls.hazSTCCs.controls.length : 1">reorder</mat-icon>
+    </h5>
+    <div [formGroup]="form().controls.stcc" class="d-flex flex-column w-100 p-2 my-2">
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Search by STCC, Description or UN/ANA</mat-label>
+          @if (form().controls.stcc.pending) {
+            <mat-spinner class="me-2" matSuffix diameter="16"></mat-spinner>
+          }
+          <input (change)="onStccChange()" type="text" placeholder="Pick one" matInput formControlName="stcc" [matAutocomplete]="auto" />
+          <mat-autocomplete (optionSelected)="updateDescriptionAndHazardousForm()" autoActiveFirstOption #auto="matAutocomplete">
+            @for (option of shipmentData().stccs; track option.stcc) {
+              <mat-option [value]="option.stcc">{{ option.stcc + ' ' + option.description }}</mat-option>
+            }
+          </mat-autocomplete>
+          @let stccErrors = form().controls.stcc.controls.stcc.errors;
+          @if (stccErrors?.['invalidStcc']) {
+            <mat-error>Select Valid Stcc from the Dropdown List</mat-error>
+          }
+          @if (stccErrors?.['invalidOrderOption']) {
+            <mat-error>Select a valid Order Option</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="pe-1" appearance="outline">
+          <mat-label>Pieces</mat-label>
+          <input formControlName="pieces" matInput />
+        </mat-form-field>
+        <mat-form-field class="pe-1" appearance="outline">
+          <mat-label>Package Qualifier</mat-label>
+          <input formControlName="packageQualifier" matInput />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="w-100 rounded-top px-2 pt-3">
+      @if (form().controls.hazSTCCs.controls.length > 0) {
+        <h5 class="my-3">Hazardous STCC</h5>
+      }
+      @for (commodity of form().controls.hazSTCCs.controls; track commodity.controls; let index = $index) {
+        <div [formGroup]="commodity" class="d-flex flex-column p-2 my-2 shadow">
+          <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+            <mat-form-field class="flex-fill pe-1" appearance="outline">
+              <mat-label>Search by STCC, Description or UN/ANA</mat-label>
+              <input formControlName="stcc" matInput />
+            </mat-form-field>
+            <mat-form-field class="flex-fill pe-1" appearance="outline">
+              <mat-label>Description</mat-label>
+              <input formControlName="description" matInput />
+            </mat-form-field>
+          </div>
+          <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+            <mat-form-field class="pe-1" appearance="outline">
+              <mat-label>Pieces</mat-label>
+              <input formControlName="pieces" matInput />
+            </mat-form-field>
+            <mat-form-field class="pe-1" appearance="outline">
+              <mat-label>Package Qualifier</mat-label>
+              <input formControlName="packageQualifier" matInput />
+            </mat-form-field>
+            <mat-form-field class="pe-1" appearance="outline">
+              <mat-label>Amount</mat-label>
+              <input formControlName="amount" matInput />
+            </mat-form-field>
+            <mat-form-field class="pe-1" appearance="outline">
+              <mat-label>Amount Qualifier</mat-label>
+              <input formControlName="amountQualifier" matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      }
+    </div>
+  </form>
+</mat-expansion-panel>

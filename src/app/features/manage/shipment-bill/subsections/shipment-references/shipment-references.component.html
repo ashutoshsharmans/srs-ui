@@ -1,0 +1,120 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.SHIPMENT_REFERENCES }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Special Endorsements</mat-label>
+      <mat-chip-grid #specialEndorsementChip aria-label="Fruit selection">
+        @for (endorsement of selectedEndorsements; track $index) {
+          <mat-chip-row (removed)="removeEndorsement(endorsement)">
+            {{ endorsement }}
+            <button matChipRemove [attr.aria-label]="'remove ' + endorsement">
+              <mat-icon class="text-warning">cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+      </mat-chip-grid>
+      <input placeholder="Special Endorsement" [matChipInputFor]="specialEndorsementChip" [matAutocomplete]="specialEndorsementAuto" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" />
+      <mat-autocomplete #specialEndorsementAuto="matAutocomplete" (optionSelected)="updateSelectedEndorsements($event)">
+        @for (endorsement of shipmentData().specialEndorsements; track endorsement) {
+          <mat-option [value]="endorsement.specialEndorsementCode">{{ endorsement.description }}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+    <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+      <mat-form-field class="flex-fill pe-1" appearance="outline">
+        <mat-label>Permit Number</mat-label>
+        <input formControlName="permitNumber" matInput />
+      </mat-form-field>
+      <mat-form-field class="flex-fill pe-1" appearance="outline">
+        <mat-label>Mine Number</mat-label>
+        <input formControlName="mineNumber" matInput />
+      </mat-form-field>
+      <mat-form-field class="flex-fill pe-1" appearance="outline">
+        <mat-label>Brim Customer Name</mat-label>
+        <input formControlName="brimCustomerName" matInput />
+      </mat-form-field>
+      <mat-form-field class="flex-fill pe-1" appearance="outline">
+        <mat-label>Brim Vessel Destination</mat-label>
+        <input formControlName="brimCustomerName" matInput />
+      </mat-form-field>
+    </div>
+    <h5 class="my-3">
+      Shipment References
+      <mat-icon class="warn" aria-hidden="false" [matBadge]="1">reorder</mat-icon>
+    </h5>
+    <div class="w-100 rounded-top px-2 pt-3">
+      @for (shipmentReference of form().controls.shipmentReferences.controls; track shipmentReference; let index = $index) {
+        <div [formGroup]="shipmentReference" class="d-flex justify-content-between px-2 shadow my-2">
+          <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+            <mat-form-field class="pe-1" appearance="outline">
+              <mat-label>Reference Qualifier</mat-label>
+              <input formControlName="referenceQualifier" matInput />
+            </mat-form-field>
+            <mat-form-field class="pe-1" appearance="outline">
+              <mat-label>Reference Number</mat-label>
+              <input formControlName="referenceNumber" matInput />
+            </mat-form-field>
+            <mat-form-field class="pe-1" appearance="outline">
+              <mat-label>Reference Date</mat-label>
+              <input formControlName="referenceDate" matInput [matDatepicker]="referenceDatePicker" />
+              <mat-datepicker-toggle matIconSuffix [for]="referenceDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #referenceDatePicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="pe-1" appearance="outline">
+              <mat-label>Reference Freeform Description</mat-label>
+              <input formControlName="referenceFreeformDescription" matInput />
+            </mat-form-field>
+          </div>
+          @if (!this.viewOnly()) {
+            <button class="warn" mat-icon-button (click)="removeShipmentReference(index)">
+              <mat-icon>close</mat-icon>
+            </button>
+          }
+        </div>
+      }
+      <div class="d-flex justify-content-center">
+        @if (!this.viewOnly()) {
+          <button
+            class="primary"
+            matTooltip="Add Additonal Shipment Reference"
+            mat-icon-button
+            (click)="addShipmentReference()"
+            [disabled]="viewOnly() || form().controls.shipmentReferences.length > 1">
+            <mat-icon>add</mat-icon>
+          </button>
+        }
+      </div>
+    </div>
+    <h5 class="my-3">Additional Shipment Information</h5>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Additional Shipment Items</mat-label>
+      <mat-chip-grid #additionalShipmentItemChip aria-label="Shipment Item Selection">
+        @for (additionalShipment of selectedAdditionalShipmentItems; track $index) {
+          <mat-chip-row (removed)="removeAdditionalShipmentItems(additionalShipment)">
+            {{ additionalShipment }}
+            <button matChipRemove [attr.aria-label]="'remove ' + additionalShipment">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+      </mat-chip-grid>
+      <input
+        placeholder="Additional Shipment Items"
+        [matChipInputFor]="additionalShipmentItemChip"
+        [matAutocomplete]="additionalShipmentItemAuto"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" />
+      <mat-autocomplete #additionalShipmentItemAuto="matAutocomplete" (optionSelected)="updateSelectedShipmentItems($event)">
+        @for (endorsement of shipmentData().specialEndorsements; track endorsement.specialEndorsementCode) {
+          <mat-option [value]="endorsement.specialEndorsementCode">{{ endorsement.description }}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</mat-expansion-panel>

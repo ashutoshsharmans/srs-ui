@@ -1,0 +1,113 @@
+@use '@angular/material' as mat;
+@use './font' as fonts;
+@use './color' as color;
+html {
+  & .mat-mdc-form-field-required-marker {
+    color: color.$otc-danger;
+    font-weight: bold;
+  }
+
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$cyan-palette,
+        theme-type: light
+      ),
+      typography: fonts.$font-family-primary,
+      density: 0
+    )
+  );
+  & .primary {
+    @include mat.button-overrides(
+      (
+        filled-container-color: color.$otc-primary,
+        filled-label-text-color: color.$otc-off-white
+      )
+    );
+
+    @include mat.icon-button-overrides(
+      (
+        icon-color: color.$otc-primary
+      )
+    );
+
+    @include mat.badge-overrides(
+      (
+        background-color: color.$otc-warning,
+        text-color: color.$otc-off-white
+      )
+    );
+  }
+  & .accent {
+    @include mat.button-overrides(
+      (
+        filled-container-color: color.$otc-accent,
+        filled-label-text-color: color.$otc-off-white
+      )
+    );
+
+    @include mat.icon-button-overrides(
+      (
+        icon-color: color.$otc-accent
+      )
+    );
+
+    @include mat.badge-overrides(
+      (
+        background-color: color.$otc-warning,
+        text-color: color.$otc-off-white
+      )
+    );
+  }
+
+  & .warn {
+    @include mat.button-overrides(
+      (
+        filled-container-color: color.$otc-danger,
+        filled-label-text-color: color.$otc-off-white
+      )
+    );
+
+    @include mat.icon-button-overrides(
+      (
+        icon-color: color.$otc-danger
+      )
+    );
+
+    @include mat.badge-overrides(
+      (
+        background-color: color.$otc-warning,
+        text-color: color.$otc-off-white
+      )
+    );
+  }
+}
+
+.otc-dark-theme {
+  color: color.$otc-off-white;
+  background: color.$otc-grey;
+
+  & .mat-mdc-form-field-required-marker {
+    color: color.$otc-danger-light;
+  }
+
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$cyan-palette,
+        theme-type: dark
+      ),
+      typography: fonts.$font-family-primary,
+      density: 0
+    ),
+    $overrides: (background: color.$otc-grey, surface: color.$otc-grey, surface-container-low: color.$otc-dark-grey, surface-bright: color.$otc-dark-grey, surface-container: color.$otc-dark-grey)
+  );
+
+  & .warn {
+    @include mat.icon-button-overrides(
+      (
+        icon-color: color.$otc-danger-light
+      )
+    );
+  }
+}

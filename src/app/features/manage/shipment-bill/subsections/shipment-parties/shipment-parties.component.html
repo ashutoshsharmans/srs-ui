@@ -1,0 +1,207 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.SHIPMENT_PARTIES }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    <div [formGroup]="form().controls.shipper">
+      <h5 class="my-3">Shipper</h5>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Customer Id</mat-label>
+          <input formControlName="customerId" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Address 1</mat-label>
+          <input formControlName="addressOne" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Address 2</mat-label>
+          <input formControlName="addressTwo" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>City</mat-label>
+          <input formControlName="city" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>State</mat-label>
+          <input formControlName="state" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Zip</mat-label>
+          <input formControlName="zip" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Contact</mat-label>
+          <input formControlName="city" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input formControlName="state" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Entity Id Qualifier</mat-label>
+          <input formControlName="entityIdQualifier" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Entity Id</mat-label>
+          <input formControlName="entityId" matInput />
+        </mat-form-field>
+      </div>
+    </div>
+    <div [formGroup]="form().controls.consignee">
+      <h5 class="my-3">Consignee</h5>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Customer Id</mat-label>
+          <input formControlName="customerId" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Address 1</mat-label>
+          <input formControlName="addressOne" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Address 2</mat-label>
+          <input formControlName="addressTwo" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>City</mat-label>
+          <input formControlName="city" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>State</mat-label>
+          <input formControlName="state" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Zip</mat-label>
+          <input formControlName="zip" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Contact</mat-label>
+          <input formControlName="city" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input formControlName="state" matInput />
+        </mat-form-field>
+      </div>
+      <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Entity Id Qualifier</mat-label>
+          <input formControlName="entityIdQualifier" matInput />
+        </mat-form-field>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Entity Id</mat-label>
+          <input formControlName="entityId" matInput />
+        </mat-form-field>
+      </div>
+    </div>
+    <h5 class="my-3">Bill To Party Address</h5>
+    <mat-form-field class="flex-fill pe-1" appearance="outline">
+      <mat-label>Bill To party Address</mat-label>
+      <input formControlName="billToPartyAddress" matInput />
+    </mat-form-field>
+    @for (additionalParty of form().controls.additionalParties.controls; track additionalParty; let index = $index) {
+      <div [formGroup]="additionalParty">
+        <div class="pb-1">
+          @if (!this.viewOnly()) {
+            <button matSuffix mat-stroked-button aria-label="Clear" (click)="removeAdditionalParty(index)">
+              Additional Party {{ index + 1 }}
+              <mat-icon class="text-warning">close</mat-icon>
+            </button>
+          }
+        </div>
+        <mat-form-field class="flex-fill pe-1" appearance="outline">
+          <mat-label>Type of Shipment Party</mat-label>
+          <input formControlName="typeOfShipmentParty" matInput />
+        </mat-form-field>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Customer Id</mat-label>
+            <input formControlName="customerId" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Address 1</mat-label>
+            <input formControlName="addressOne" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Address 2</mat-label>
+            <input formControlName="addressTwo" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>City</mat-label>
+            <input formControlName="city" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>State</mat-label>
+            <input formControlName="state" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Zip</mat-label>
+            <input formControlName="zip" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Contact</mat-label>
+            <input formControlName="city" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input formControlName="state" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-column flex-md-row flex-md-wrap w-100">
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Entity Id Qualifier</mat-label>
+            <input formControlName="entityIdQualifier" matInput />
+          </mat-form-field>
+          <mat-form-field class="flex-fill pe-1" appearance="outline">
+            <mat-label>Entity Id</mat-label>
+            <input formControlName="entityId" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+    }
+    @if (!this.viewOnly()) {
+      <button class="primary my-2" mat-stroked-button (click)="addAdditionalParty()">
+        Add Additional Parties
+        <mat-icon>add</mat-icon>
+      </button>
+    }
+  </form>
+</mat-expansion-panel>

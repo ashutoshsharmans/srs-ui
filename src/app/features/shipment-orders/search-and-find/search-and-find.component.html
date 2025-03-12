@@ -1,0 +1,94 @@
+<div class="d-flex flex-column align-items-stretch h-100">
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title> <b>Find Shipment Order By: </b></mat-panel-title>
+          <mat-panel-description class="justify-content-end">
+            <mat-icon>filter_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <form [formGroup]="searchForm">
+          <div class="d-flex flex-column flex-md-row align-items-md-baseline">
+            <mat-form-field class="px-2" appearance="outline">
+              <mat-label>Shipment / Waybill Serial #</mat-label>
+              <input formControlName="waybillSerial" matInput />
+            </mat-form-field>
+            <mat-form-field class="px-2" appearance="outline">
+              <mat-label>Order Type</mat-label>
+              <mat-select formControlName="orderType">
+                <mat-option value="empty-non-revenue">Loaded</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="px-2" appearance="outline">
+              <mat-label>Equipment Id</mat-label>
+              <input formControlName="equipmentId" matInput />
+            </mat-form-field>
+            <mat-form-field class="px-2" appearance="outline">
+              <mat-label>STCC</mat-label>
+              <input formControlName="stcc" matInput />
+            </mat-form-field>
+            <mat-form-field class="px-2" appearance="outline">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [formGroup]="searchForm.controls.date" [rangePicker]="picker">
+                <input matStartDate formControlName="fromDate" placeholder="Start date" />
+                <input matEndDate formControlName="toDate" placeholder="End date" />
+              </mat-date-range-input>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
+          <button class="primary my-2" mat-stroked-button (click)="toggleAdvancedSearch()">
+            Advanced Search
+            <mat-icon>
+              @if (advancedSearch) {
+                close
+              } @else {
+                add
+              }
+            </mat-icon>
+          </button>
+          @if (advancedSearch) {
+            <div>
+              <h4>Shipment Parties</h4>
+              <div class="d-flex flex-column flex-md-row align-items-md-baseline">
+                <mat-form-field class="px-2" appearance="outline">
+                  <mat-label>Shipper</mat-label>
+                  <input formControlName="shipper" matInput />
+                </mat-form-field>
+                <mat-form-field class="px-2" appearance="outline">
+                  <mat-label>Consignee</mat-label>
+                  <input formControlName="consignee" matInput />
+                </mat-form-field>
+                <mat-form-field class="px-2" appearance="outline">
+                  <mat-label>Bill To Party</mat-label>
+                  <input formControlName="billToParty" matInput />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <h4>Route</h4>
+              <div class="d-flex flex-column flex-md-row align-items-md-baseline">
+                <mat-form-field class="px-2" appearance="outline">
+                  <mat-label>Origin City, ST</mat-label>
+                  <input matInput />
+                </mat-form-field>
+                <mat-form-field class="px-2" appearance="outline">
+                  <mat-label>Destination City, ST</mat-label>
+                  <input matInput />
+                </mat-form-field>
+              </div>
+            </div>
+          }
+          <div class="d-flex justify-content-between">
+            <button (click)="clear()" class="accent" mat-stroked-button>Clear</button>
+            <button class="accent" [disabled]="!searchForm.valid" (click)="search()" mat-flat-button>Search</button>
+          </div>
+        </form>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="flex-grow-1">
+    <otc-grid [loading]="store.loading()" [colDef]="colDefs" [rowData]="store.shipmentOrders()"></otc-grid>
+  </div>
+</div>

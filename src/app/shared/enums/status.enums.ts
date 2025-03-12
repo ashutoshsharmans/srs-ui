@@ -1,0 +1,13 @@
+export enum EStatus {
+  DISABLED = 'DISABLED',
+  DONE = 'DONE',
+  DRAFT = 'DRAFT',
+  ERROR = 'ERROR',
+  INVALID = 'INVALID',
+  IN_PROGRESS = 'IN PROG',
+  PENDING = 'PENDING',
+  PROCESSED = 'PROCESSED',
+  REQUIRE = 'REQ',
+  UNKNOWN = 'UNKNOWN',
+  VALID = 'VALID'
+}

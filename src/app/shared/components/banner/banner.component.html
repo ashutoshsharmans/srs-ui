@@ -1,0 +1,19 @@
+@if (store.notifications().length > 0) {
+  @let notification = store.notifications()[1];
+  <mat-toolbar class="bg-secondary text-white" [@easeInOutAnimation]>
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <button disabled mat-icon-button>
+        @if (notification.type === 'info') {
+          <mat-icon class="text-primary">info</mat-icon>
+        } @else {
+          <mat-icon>warning</mat-icon>
+        }
+      </button>
+      <span class="text-truncate animation-blink">{{ notification.message }}</span>
+      <div class="d-flex align-items-center">
+        <button class="primary" mat-flat-button (click)="viewNotifications()" [matBadge]="store.notifications().length">View More</button>
+        <button class="text-white" mat-icon-button (click)="closeBanner.emit()"><mat-icon>close</mat-icon></button>
+      </div>
+    </div>
+  </mat-toolbar>
+}

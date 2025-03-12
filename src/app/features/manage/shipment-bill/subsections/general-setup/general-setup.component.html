@@ -1,0 +1,27 @@
+<mat-expansion-panel (expandedChange)="onExpandPanel($event)" [(expanded)]="expandPanel">
+  <mat-expansion-panel-header class="bg-primary bg-opacity-10">
+    <mat-panel-title class="justify-content-between">
+      <span class="px-2">
+        <b>{{ sectionLabel.GENERAL }}</b>
+      </span>
+      <otc-badge [value]="status()"></otc-badge>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="d-flex flex-column align-items-md-baseline pt-3" [formGroup]="form()">
+    @if (billType() === 'BOL') {
+      <mat-checkbox formControlName="searchBy"><b>Search By: </b>Serial Number</mat-checkbox>
+      <div>
+        @if (form().controls.searchBy.value) {
+          <mat-form-field appearance="outline">
+            <mat-label>Serial Number</mat-label>
+            <input formControlName="serialNumber" matInput type="text" />
+            <button class="warn" matSuffix mat-icon-button aria-label="Clear">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <button class="accent mx-2" mat-flat-button>Go</button>
+        }
+      </div>
+    }
+  </form>
+</mat-expansion-panel>

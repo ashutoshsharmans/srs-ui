@@ -1,0 +1,24 @@
+@if (state$ | async; as state) {
+  <button class="text-white bg-dark border-bottom border-2 border-primary w-100 py-4 rounded-0" mat-flat-button>
+    <mat-icon>person_outline</mat-icon>
+    Hello, {{ state.user.firstName }} {{ state.user.lastName }}
+  </button>
+  <mat-nav-list>
+    @for (menu of menus; track menu.label) {
+      @if (menu.link) {
+        <a (click)="linkClick.emit()" routerLinkActive="border-bottom border-1 border-primary" mat-list-item [routerLink]="menu.url">{{ menu.label }}</a>
+      } @else {
+        <h3 class="mx-2 px-2 py-2 border-bottom border-2 border-light-subtle bg-primary bg-opacity-10">
+          <b>{{ menu.label }}</b>
+        </h3>
+        @for (childMenu of menu.child; track childMenu.label) {
+          @if (childMenu.link) {
+            <a (click)="linkClick.emit()" routerLinkActive="border-bottom border-2 border-primary" mat-list-item [routerLink]="childMenu.url" [queryParams]="childMenu.queryParams">
+              {{ childMenu.label }}
+            </a>
+          }
+        }
+      }
+    }
+  </mat-nav-list>
+}

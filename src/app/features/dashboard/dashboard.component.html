@@ -1,0 +1,42 @@
+<div class="d-flex flex-column align-items-stretch h-100">
+  <div>
+    <div class="d-flex justify-content-between px-3 py-2">
+      <h4><b>My Shipment Requests</b></h4>
+      <button class="primary px-5" mat-flat-button [matMenuTriggerFor]="shipmentOrdersMenu">+ Create</button>
+      <mat-menu class="rounded" #shipmentOrdersMenu="matMenu">
+        <button routerLink="/home/manage/shipment-request" [queryParams]="{ type: 'bol' }" routerLinkActive="border-bottom border-2 border-primary" mat-menu-item>
+          <mat-icon>train</mat-icon>
+          Shipment Request
+        </button>
+        <button routerLink="/home/manage/shipment-request" [queryParams]="{ type: 'misc' }" mat-menu-item>
+          <mat-icon>receipt_long</mat-icon>
+          Miscellaneous Bill
+        </button>
+        <button routerLink="/home/manage/shipment-request" [queryParams]="{ type: 'waybill' }" mat-menu-item>
+          <mat-icon>receipt</mat-icon>
+          Waybill
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="flex-grow-1">
+    <div class="d-flex flex-column flex-md-row h-100">
+      <mat-card class="w-100 h-100 me-1">
+        <mat-card-header>
+          <mat-card-subtitle class="warn" [matBadge]="store.drafts().length" matBadgeOverlap="false">DRAFT REQUEST</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="h-100">
+          <otc-grid [colDef]="draftColDefs" [rowData]="store.drafts()" [loading]="store.loadingDrafts()"></otc-grid>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="w-100 h-100">
+        <mat-card-header>
+          <mat-card-subtitle class="warn" [matBadge]="store.submitted().length" matBadgeOverlap="false">SUBMITTED REQUEST</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="h-100">
+          <otc-grid [colDef]="submittedColDefs" [rowData]="store.submitted()" [loading]="store.loadingSubmitted()"></otc-grid>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

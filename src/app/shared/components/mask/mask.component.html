@@ -1,0 +1,8 @@
+<div cdkOverlayOrigin #trigger="cdkOverlayOrigin"></div>
+<ng-template
+  [cdkConnectedOverlayPanelClass]="['bg-dark', 'bg-opacity-75', 'w-100', 'h-100', 'align-items-center', 'justify-content-center']"
+  [cdkConnectedOverlayOrigin]="trigger"
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOpen]="value()">
+  <mat-spinner></mat-spinner>
+</ng-template>
