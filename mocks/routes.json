@@ -1,0 +1,19 @@
+{
+  "/v1/user/info": "/user",
+  "/v1/notifications": "/notifications",
+  "/v1/pattern": "/pattern",
+  "/v1/draft": "/draft",
+  "/v1/stccs": "/stccs",
+  "/v1/stccs?query=:query": "/stccs?query=:query",
+  "/v1/qualifiers": "/qualifiers",
+  "/v1/reference-number-qualifiers": "/reference-number-qualifiers",
+  "/v1/brim-customer-names": "/brim-customer-names",
+  "/v1/brim-vessel-destinations": "/brim-vessel-destinations",
+  "/v1/special-endorsements": "/special-endorsements",
+  "/v1/submit?wo=:wo": "/submit?wo=:wo",
+  "/v1/submitted-requests": "/submitted-requests",
+  "/v1/drafts": "/drafts",
+  "/v1/updated-waybills": "/updated-waybills",
+  "/v1/validate-equipment?initial=:initial&number=:number": "/validate-equipment?initial=:initial&number=:number",
+  "/v1/validate-equipments": "/validate-equipments"
+}

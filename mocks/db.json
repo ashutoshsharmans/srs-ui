@@ -1,0 +1,2558 @@
+{
+  "validate-equipments": [
+    {
+      "equipmentId": "NS1",
+      "initial": "1",
+      "notInUmber": false,
+      "number": "1",
+      "valid": true
+    },
+    {
+      "equipmentId": "NS2",
+      "initial": "2",
+      "notInUmber": false,
+      "number": "1",
+      "valid": true
+    }
+  ],
+  "validate-equipment": {
+    "equipmentId": "NS 1",
+    "initial": "NS",
+    "notInUmber": false,
+    "number": "1",
+    "valid": true
+  },
+  "equipments": [
+    {
+      "id": "1",
+      "name": "Ash"
+    },
+    {
+      "id": "2",
+      "name": "Ash"
+    },
+    {
+      "id": "3",
+      "name": "Ash"
+    },
+    {
+      "id": "4",
+      "name": "Ash"
+    }
+  ],
+  "notifications": [
+    {
+      "message": "Weather Alert for Atlanta, GA!",
+      "type": "warning"
+    },
+    {
+      "message": "NS Holiday on Feb, 14th",
+      "type": "info"
+    }
+  ],
+  "user": {
+    "firstName": "Ashutosh",
+    "lastName": "Sharma",
+    "racf": "ZD4EU",
+    "rba": [
+      "OTC_ACCESS_READONLY",
+      "OTC_ACCESS",
+      "SRS_NON_INTERMODAL_CREATE",
+      "SRS_NON_INTERMODAL_UPDATE",
+      "SRS_INTERMODAL_CREATE",
+      "SRS_INTERMODAL_UPDATE",
+      "SRS_MB_RW_CREATE",
+      "OTC_ADMIN_ACCESS",
+      "SRS_INTERMODAL_MANIFEST_CREATE",
+      "SRS_INTERMODAL_MANIFEST_UPDATE",
+      "SO_SEARCH_FIND_ACCESS",
+      "SO_MANAGEMENT_ACCESS",
+      "SRS_PROPERTOACCRUE_NON_INTERMODAL_CREATE",
+      "SRS_PROPERTOACCRUE_INTERMODAL_UPDATE",
+      "SRS_EMPTY_REVENUE_CREATE",
+      "SRS_EMPTY_REVENUE_UPDATE",
+      "SRS_MB_RW_UPDATE",
+      "SRS_PROPERTOACCRUE_NON_INTERMODAL_UPDATE",
+      "SRS_PROPERTOACCRUE_INTERMODAL_CREATE",
+      "SRS_EMPTY_NON_REVENUE_CREATE",
+      "SRS_EMPTY_NON_REVENUE_UPDATE",
+      "SRS_HAZARDOUS_NON_INTERMODAL_CREATE",
+      "SRS_HAZARDOUS_NON_INTERMODAL_UPDATE",
+      "SRS_UNIT_TRAIN_CREATE",
+      "SRS_UNIT_TRAIN_UPDATE",
+      "SRS_HAZARDOUS_INTERMODAL_UPDATE",
+      "SRS_HAZARDOUS_INTERMODAL_CREATE",
+      "SRS_COMPANY_MATERIAL_LOADED_MERCHANDISE_CREATE",
+      "SRS_COMPANY_MATERIAL_UNIT_TRAIN_CREATE",
+      "SRS_COMPANY_MATERIAL_UNIT_TRAIN_UPDATE",
+      "SRS_COMPANY_MATERIAL_LOADED_MERCHANDISE_UPDATE"
+    ],
+    "username": "ashutosh.sharma@nscorp.com"
+  },
+  "pattern": {
+    "orderSetup": {
+      "orderOption": "RESHIP",
+      "piecesOfEquipment": [
+        {
+          "equipmentId": {
+            "initial": "NS",
+            "number": "1"
+          },
+          "sealNumber": "11",
+          "grossWeight": "10",
+          "netWeight": 20,
+          "tareWeight": 10,
+          "overwrite": false
+        },
+        {
+          "equipmentId": {
+            "initial": "NS",
+            "number": "2"
+          },
+          "sealNumber": "11",
+          "grossWeight": "10",
+          "netWeight": 20,
+          "tareWeight": 20,
+          "overwrite": false
+        },
+        {
+          "equipmentId": {
+            "initial": "NS",
+            "number": "3"
+          },
+          "sealNumber": "11",
+          "grossWeight": "10",
+          "netWeight": 20,
+          "tareWeight": 20,
+          "overwrite": false
+        }
+      ],
+      "totalNetWeight": 60
+    },
+    "shipmentParties": {},
+    "route": {},
+    "commodity": {
+      "hazSTCCS": [],
+      "hazSTCC": "stccHaz",
+      "stcc": {
+        "packageQualifier": null,
+        "pieces": null,
+        "stcc": "4950120",
+        "description": "FAK-hazardous MATERIALS GOODS CLASS"
+      }
+    },
+    "shipmentReferences": {},
+    "rating": {}
+  },
+  "draft": {
+    "orderSetup": {
+      "orderOption": "UNIT_TRAIN"
+    }
+  },
+  "stccs": [
+    {
+      "stcc": "4950120",
+      "description": "FAK-HAZARDOUS MATERIALS GOODS CLASS",
+      "maxWeight": "264000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950170",
+      "description": "FAK-HAZARDOUS MATERIALS GOODS CLASS",
+      "maxWeight": "198000",
+      "minWeight": "2000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950130",
+      "description": "FAK-HAZARDOUS MATERIALS GOODS CLASS",
+      "maxWeight": "231000",
+      "minWeight": "0",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950140",
+      "description": "FAK-HAZARDOUS MATERIALS GOODS CLASS",
+      "maxWeight": "247500",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950150",
+      "description": "FAK-HAZARDOUS MATERIALS GOODS CLASS",
+      "maxWeight": "561000",
+      "minWeight": "0",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950163",
+      "description": "FAK-EXPLOSIVES 1.1 CLASS",
+      "maxWeight": "220000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950164",
+      "description": "FAK-EXPLOSIVES 1.2 CLASS",
+      "maxWeight": "220000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950165",
+      "description": "FAK-EXPLOSIVES 1.3 CLASS",
+      "maxWeight": "220000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950160",
+      "description": "FAK-HAZARDOUS MATERIALS GOODS CLASS",
+      "maxWeight": "247500",
+      "minWeight": "13000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950155",
+      "description": "FAK-HAZARDOUS MATERIALS GOODS CLASS",
+      "maxWeight": "247000",
+      "minWeight": "5000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950166",
+      "description": "FAK-DETONATORS, CLASS 1.4 EXPLOSIVES INCLUDES 1.4 EXPLOSIVES CLASS",
+      "maxWeight": "220000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4950110",
+      "description": "FAK-HAZARDOUS MATERIALS GOODS CLASS",
+      "maxWeight": "295000",
+      "minWeight": "1000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4711110",
+      "description": "FAK-MIXED SHIPMENT",
+      "maxWeight": "368000",
+      "minWeight": "0",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4611121",
+      "description": "FAK, EXCEPT CLASS 1, DIVS1.1, 1.2 AND 1.3         AMMO/EXPL/",
+      "maxWeight": "250000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4611122",
+      "description": "FAK, EXCEPT CLASS 1, DIV.1.1, 1.2 AND 1.3         AMMO/EXPL/",
+      "maxWeight": "250000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4611123",
+      "description": "FAK, EXCEPT CLASS 1, DIV.1.1, 1.2 AND 1.3         EXPL/FRWRK",
+      "maxWeight": "250000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4611124",
+      "description": "FAK, EXCEPT CLASS A, B, CAND CHEMICAL EXPLOSIVES  AND MUNITI",
+      "maxWeight": "250000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4611125",
+      "description": "FAK, EXCEPT FOR CLASS 1  DIVISION 1.1, 1.2 AND 1.3AMMO. EXPL",
+      "maxWeight": "250000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4611126",
+      "description": "FAK, ITEM DESCRIPTIONS   AND CARGO LIABILITY AS   DESCRIBED",
+      "maxWeight": "250000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    },
+    {
+      "stcc": "4611127",
+      "description": "FAK, RELEASED VALUE NOT  TO EXCEED $1.75 PER LB.",
+      "maxWeight": "250000",
+      "minWeight": "10000",
+      "expirationDate": null,
+      "effectiveDate": null,
+      "coal": false,
+      "forbidden": false
+    }
+  ],
+  "qualifiers": [
+    {
+      "code": "ABS",
+      "description": "ABSORBED SWITCHING",
+      "demurrage": false
+    },
+    {
+      "code": "BAG",
+      "description": "BAG",
+      "demurrage": false
+    },
+    {
+      "code": "BAL",
+      "description": "BALE",
+      "demurrage": false
+    },
+    {
+      "code": "BAR",
+      "description": "BARGE",
+      "demurrage": false
+    },
+    {
+      "code": "BBL",
+      "description": "BARREL",
+      "demurrage": false
+    },
+    {
+      "code": "BDL",
+      "description": "BUNDLE",
+      "demurrage": false
+    },
+    {
+      "code": "BEM",
+      "description": "BEAM",
+      "demurrage": false
+    },
+    {
+      "code": "BIN",
+      "description": "BIN",
+      "demurrage": false
+    },
+    {
+      "code": "BKG",
+      "description": "BULK BAG",
+      "demurrage": false
+    },
+    {
+      "code": "BKT",
+      "description": "BUCKET",
+      "demurrage": false
+    },
+    {
+      "code": "BLK",
+      "description": "BULK",
+      "demurrage": false
+    },
+    {
+      "code": "BOX",
+      "description": "BOX",
+      "demurrage": false
+    },
+    {
+      "code": "BSK",
+      "description": "BASKET ANF HAMPER",
+      "demurrage": false
+    },
+    {
+      "code": "CAB",
+      "description": "CABINET",
+      "demurrage": false
+    },
+    {
+      "code": "CAG",
+      "description": "CAGE",
+      "demurrage": false
+    },
+    {
+      "code": "CAN",
+      "description": "CAN",
+      "demurrage": false
+    },
+    {
+      "code": "CAR",
+      "description": "CAR LOAD",
+      "demurrage": false
+    },
+    {
+      "code": "CAS",
+      "description": "CASE",
+      "demurrage": false
+    },
+    {
+      "code": "CBY",
+      "description": "CARBOY",
+      "demurrage": false
+    },
+    {
+      "code": "CLD",
+      "description": "CARLOAD",
+      "demurrage": false
+    },
+    {
+      "code": "CNT",
+      "description": "CONTAINER",
+      "demurrage": false
+    },
+    {
+      "code": "COL",
+      "description": "COIL",
+      "demurrage": false
+    },
+    {
+      "code": "COR",
+      "description": "CORE",
+      "demurrage": false
+    },
+    {
+      "code": "CRA",
+      "description": "CRADLE",
+      "demurrage": false
+    },
+    {
+      "code": "CRD",
+      "description": "CORD",
+      "demurrage": false
+    },
+    {
+      "code": "CRT",
+      "description": "CRATE",
+      "demurrage": false
+    },
+    {
+      "code": "CSK",
+      "description": "CASK",
+      "demurrage": false
+    },
+    {
+      "code": "CTN",
+      "description": "CARTON",
+      "demurrage": false
+    },
+    {
+      "code": "CUF",
+      "description": "CUBIC FEET",
+      "demurrage": false
+    },
+    {
+      "code": "CYL",
+      "description": "CYLINDER",
+      "demurrage": false
+    },
+    {
+      "code": "DRM",
+      "description": "DRUM",
+      "demurrage": false
+    },
+    {
+      "code": "FIR",
+      "description": "FIRKIN",
+      "demurrage": false
+    },
+    {
+      "code": "FRM",
+      "description": "FRAME",
+      "demurrage": false
+    },
+    {
+      "code": "FSK",
+      "description": "FLASK",
+      "demurrage": false
+    },
+    {
+      "code": "GAL",
+      "description": "GALLON",
+      "demurrage": false
+    },
+    {
+      "code": "HGN",
+      "description": "HOGSHEAD",
+      "demurrage": false
+    },
+    {
+      "code": "HRB",
+      "description": "ON HANGER/RACK IN BOXES",
+      "demurrage": false
+    },
+    {
+      "code": "JAR",
+      "description": "JAR",
+      "demurrage": false
+    },
+    {
+      "code": "KEG",
+      "description": "KEG",
+      "demurrage": false
+    },
+    {
+      "code": "KIT",
+      "description": "KIT",
+      "demurrage": false
+    },
+    {
+      "code": "LOD",
+      "description": "LOAD",
+      "demurrage": false
+    },
+    {
+      "code": "LSE",
+      "description": "LOOSE",
+      "demurrage": false
+    },
+    {
+      "code": "MIL",
+      "description": "MILES",
+      "demurrage": false
+    },
+    {
+      "code": "PAL",
+      "description": "PAIL",
+      "demurrage": false
+    },
+    {
+      "code": "PAR",
+      "description": "PAIR",
+      "demurrage": false
+    },
+    {
+      "code": "PCK",
+      "description": "PACKED NOT OTHERWISE SPECIFIED",
+      "demurrage": false
+    },
+    {
+      "code": "PCS",
+      "description": "PIECES",
+      "demurrage": false
+    },
+    {
+      "code": "PKG",
+      "description": "PACKAGE",
+      "demurrage": false
+    },
+    {
+      "code": "PLF",
+      "description": "PLATFORM",
+      "demurrage": false
+    },
+    {
+      "code": "PLT",
+      "description": "PALLETT",
+      "demurrage": false
+    },
+    {
+      "code": "RCK",
+      "description": "RACK",
+      "demurrage": false
+    },
+    {
+      "code": "REL",
+      "description": "REEL",
+      "demurrage": false
+    },
+    {
+      "code": "ROL",
+      "description": "ROLL",
+      "demurrage": false
+    },
+    {
+      "code": "SAK",
+      "description": "SACK",
+      "demurrage": false
+    },
+    {
+      "code": "SHK",
+      "description": "SHOOK",
+      "demurrage": false
+    },
+    {
+      "code": "SKD",
+      "description": "SKID",
+      "demurrage": false
+    },
+    {
+      "code": "SKT",
+      "description": "SKID ELEVAT OR LIFT TR",
+      "demurrage": false
+    },
+    {
+      "code": "TBE",
+      "description": "TUBE",
+      "demurrage": false
+    },
+    {
+      "code": "TKR",
+      "description": "TANK CAR",
+      "demurrage": false
+    },
+    {
+      "code": "TNK",
+      "description": "TANK",
+      "demurrage": false
+    },
+    {
+      "code": "TRC",
+      "description": "TIERCE",
+      "demurrage": false
+    },
+    {
+      "code": "TRK",
+      "description": "TRUNK AND CHEST",
+      "demurrage": false
+    },
+    {
+      "code": "TRL",
+      "description": "TRAILER (INTRMDL TRL/CNT) RAIL",
+      "demurrage": false
+    },
+    {
+      "code": "TRY",
+      "description": "TRAY",
+      "demurrage": false
+    },
+    {
+      "code": "TSS",
+      "description": "TRUNK SALESMAN SAMPLE",
+      "demurrage": false
+    },
+    {
+      "code": "TUB",
+      "description": "TUB",
+      "demurrage": false
+    },
+    {
+      "code": "UAS",
+      "description": "UNABSORBED SWITCHING",
+      "demurrage": false
+    },
+    {
+      "code": "UNP",
+      "description": "UNPACKED",
+      "demurrage": false
+    },
+    {
+      "code": "UNT",
+      "description": "UNITS",
+      "demurrage": false
+    },
+    {
+      "code": "VEH",
+      "description": "VEHICLES",
+      "demurrage": false
+    },
+    {
+      "code": "WHE",
+      "description": "ON OWN WHEELS",
+      "demurrage": false
+    },
+    {
+      "code": "WLC",
+      "description": "WHEELED CARRIER",
+      "demurrage": false
+    },
+    {
+      "code": "WRP",
+      "description": "WRAPPED",
+      "demurrage": false
+    },
+    {
+      "code": "217",
+      "description": "SWITCHING-ABSORBED",
+      "demurrage": false
+    },
+    {
+      "code": "530",
+      "description": "$$ BILLED BY INTERMEDIATE ROAD",
+      "demurrage": false
+    }
+  ],
+  "reference-number-qualifiers": [
+    {
+      "referenceNumberQualifierCode": "AB",
+      "description": "ACCEPTABLE SOURCE BUYER ID"
+    },
+    {
+      "referenceNumberQualifierCode": "AC",
+      "description": "AIR CARGO TRANSFER MANIFEST"
+    },
+    {
+      "referenceNumberQualifierCode": "AD",
+      "description": "ACCEPTABLE SOURCE DUNS NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "AE",
+      "description": "AFE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "AF",
+      "description": "AIRLINES FLIGHT ID NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "AG",
+      "description": "AGENTS SHIPMENT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "AH",
+      "description": "FRA-OTMA"
+    },
+    {
+      "referenceNumberQualifierCode": "AI",
+      "description": "ASSOCIATED INVOICES"
+    },
+    {
+      "referenceNumberQualifierCode": "AL",
+      "description": "ACCOUNTING LOCATION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "AM",
+      "description": "ADJUSTMENT MEMO"
+    },
+    {
+      "referenceNumberQualifierCode": "AN",
+      "description": "ASSOCIATED PURCHASE ORDERS"
+    },
+    {
+      "referenceNumberQualifierCode": "AT",
+      "description": "APPROPRIATION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "AU",
+      "description": "AUTHORIZATION TO MEET COMPETITION #"
+    },
+    {
+      "referenceNumberQualifierCode": "AW",
+      "description": "AIR WAYBILL NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "A1",
+      "description": "ANALYSIS NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "BB",
+      "description": "AUTHORIZATION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "BC",
+      "description": "BUYER'S CONTRACT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "BJ",
+      "description": "CARRIER'S CUSTOMS BOND NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "BK",
+      "description": "BROKER'S ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "BL",
+      "description": "GOVERNMENT BILL OF LADING"
+    },
+    {
+      "referenceNumberQualifierCode": "BN",
+      "description": "BOOKING NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "BR",
+      "description": "BROKER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "BS",
+      "description": "SPLIT BOOKING NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "BT",
+      "description": "BATCH NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CB",
+      "description": "COMBINED SHIPMENT"
+    },
+    {
+      "referenceNumberQualifierCode": "CD",
+      "description": "CREDIT NOTE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CEN",
+      "description": "CENSUS NO DECLARATION REQUIRED"
+    },
+    {
+      "referenceNumberQualifierCode": "CF",
+      "description": "FLEET REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CG",
+      "description": "CONSIGNEE'S ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CH",
+      "description": "CUSTOMER CATALOG NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CJ",
+      "description": "CLAUSE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CK",
+      "description": "CHECK NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CN",
+      "description": "CARRIER'S REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CO",
+      "description": "CUSTOMER'S ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CQ",
+      "description": "BROKER LICENSE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CR",
+      "description": "CUSTOMER REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CS",
+      "description": "CONDITION OF SALE DOCUMENT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CT",
+      "description": "CONTRACT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "CX",
+      "description": "CONSIGNMENT CLASSIFICATION ID"
+    },
+    {
+      "referenceNumberQualifierCode": "DC",
+      "description": "DEALER PURCHASE ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "DE",
+      "description": "DEPOSITOR NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "DI",
+      "description": "DISTRIBUTOR INVOICE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "DK",
+      "description": "DOCK NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "DO",
+      "description": "DELIVERY ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "DS",
+      "description": "DEFENSE PRIORITIES ALLOCATION SYSTEM"
+    },
+    {
+      "referenceNumberQualifierCode": "DU",
+      "description": "DEPOSIT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "DV",
+      "description": "DIVERSION AUTHORITY NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "DW",
+      "description": "DEPOSIT SEQUENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "EB",
+      "description": "EMBARGO PERMIT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "ED",
+      "description": "EXPORT DECLARATION"
+    },
+    {
+      "referenceNumberQualifierCode": "EN",
+      "description": "EMBARGO NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "EP",
+      "description": "EXPORT PERMIT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "EQ",
+      "description": "EQUIPMENT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "ER",
+      "description": "EQUIPMENT RECEIPT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "ES",
+      "description": "EMPLOYERS SSN"
+    },
+    {
+      "referenceNumberQualifierCode": "EU",
+      "description": "END USER'S REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "FC",
+      "description": "FILER CODE ISSUED BY CUSTOMS"
+    },
+    {
+      "referenceNumberQualifierCode": "FN",
+      "description": "FORWARDER'S/AGENT'S REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "FP",
+      "description": "FORESTRY PERMIT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "FR",
+      "description": "FREIGHT BILL #"
+    },
+    {
+      "referenceNumberQualifierCode": "FRC",
+      "description": "FIRMS CODE"
+    },
+    {
+      "referenceNumberQualifierCode": "FS",
+      "description": "FINAL SEQUENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "FT",
+      "description": "FOREIGN TRADE ZONE"
+    },
+    {
+      "referenceNumberQualifierCode": "F9",
+      "description": "FREIGHT PAYOR REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "GB",
+      "description": "GRAIN BLOCK NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "GC",
+      "description": "GOVERNMENT CONTRACT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "GL",
+      "description": "GEOGRAPHIC DESTINATION ZONE #"
+    },
+    {
+      "referenceNumberQualifierCode": "GR",
+      "description": "GRAIN ORDER REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "HC",
+      "description": "HEAT CODE"
+    },
+    {
+      "referenceNumberQualifierCode": "HP",
+      "description": "PACK & HOLD INVOICE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "HS",
+      "description": "HARMONIZED CODE SYSTEM (CANADA)"
+    },
+    {
+      "referenceNumberQualifierCode": "HW",
+      "description": "HIGH/WIDE FILE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "H5",
+      "description": "MUTUALLY DEFINED BETWEEN KNSX & NS"
+    },
+    {
+      "referenceNumberQualifierCode": "IB",
+      "description": "INBOND NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "IL",
+      "description": "INTERNAL ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "IM",
+      "description": "INTERGOVERNMENTAL MARITIME ORIG (IMO) #"
+    },
+    {
+      "referenceNumberQualifierCode": "IN",
+      "description": "CONSIGNEE'S INVOICE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "IO",
+      "description": "INBOUND-TO OR OUTBOUND-FROM PARTY"
+    },
+    {
+      "referenceNumberQualifierCode": "IR",
+      "description": "INTRA PLANT ROUTING"
+    },
+    {
+      "referenceNumberQualifierCode": "ITN",
+      "description": "CENSUS INTERNAL TRANSACTION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "IV",
+      "description": "SELLER'S INVOICE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "JE",
+      "description": "ENDING JOB SEQUENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "JS",
+      "description": "JOB SEQUENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "LA",
+      "description": "SHIPPING LABEL SERIAL NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "LB",
+      "description": "LOCKBOX"
+    },
+    {
+      "referenceNumberQualifierCode": "LF",
+      "description": "ASSEMBLY LINE FEED LOCATION"
+    },
+    {
+      "referenceNumberQualifierCode": "LOP",
+      "description": "PORT OF LOAD LOCATION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "LT",
+      "description": "LOT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "LW",
+      "description": "LOCATION WITHIN EQUIPMENT"
+    },
+    {
+      "referenceNumberQualifierCode": "MA",
+      "description": "SHIP NOTICE/MANIFEST NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "MB",
+      "description": "MASTER BILL OF LADING"
+    },
+    {
+      "referenceNumberQualifierCode": "MI",
+      "description": "MILL ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "MK",
+      "description": "MANIFEST KEY NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "MN",
+      "description": "MICR NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "MP",
+      "description": "MULTIPLE P O'S OF AN INVOICE"
+    },
+    {
+      "referenceNumberQualifierCode": "MS",
+      "description": "MFGR MATL SAFETY DATA SHEET NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "MXE",
+      "description": "MEX EXP BOND WAREHOUSE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "MXI",
+      "description": "MEX INP BOND WAREHOUSE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "NC",
+      "description": "NONCONFORMANCE REPORT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "OB",
+      "description": "OCEAN BILL OF LADING"
+    },
+    {
+      "referenceNumberQualifierCode": "OI",
+      "description": "ORIGINAL INVOICE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "OM",
+      "description": "OCEAN MANIFEST"
+    },
+    {
+      "referenceNumberQualifierCode": "OP",
+      "description": "ORIGINAL PURCHASE ORDER"
+    },
+    {
+      "referenceNumberQualifierCode": "OS",
+      "description": "OUTBOUND-FROM PARTY"
+    },
+    {
+      "referenceNumberQualifierCode": "OW",
+      "description": "SERVICE ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "PC",
+      "description": "PRODUCTION CODE"
+    },
+    {
+      "referenceNumberQualifierCode": "PDF",
+      "description": "CENSUS POST DEPARTURE FILING"
+    },
+    {
+      "referenceNumberQualifierCode": "PE",
+      "description": "PLANT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "PG",
+      "description": "PRODUCT GROUP"
+    },
+    {
+      "referenceNumberQualifierCode": "PH",
+      "description": "PRIORITY RATING"
+    },
+    {
+      "referenceNumberQualifierCode": "PI",
+      "description": "PRICE LIST OR ISSUE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "PJ",
+      "description": "PACKER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "PK",
+      "description": "PACKING LIST NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "PO",
+      "description": "PURCHASE ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "POD",
+      "description": "PORT OF DEST LOCATION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "PQ",
+      "description": "PAYEE'S ID"
+    },
+    {
+      "referenceNumberQualifierCode": "PR",
+      "description": "PRICE QUOTATION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "PS",
+      "description": "PURCHASE ORDER NUMBER SUFFIX"
+    },
+    {
+      "referenceNumberQualifierCode": "PT",
+      "description": "PURCHASE OPTION AGREEMENT"
+    },
+    {
+      "referenceNumberQualifierCode": "PU",
+      "description": "PREVIOUS BILL OF LADING NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "P8",
+      "description": "PICK UP REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "QR",
+      "description": "QUALITY REPORT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "RB",
+      "description": "RATE CODE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "RC",
+      "description": "RAIL ROUTING CODE"
+    },
+    {
+      "referenceNumberQualifierCode": "RE",
+      "description": "RELEASE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "RF",
+      "description": "EXPORT REFERENCE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "RN",
+      "description": "RUN NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "RO",
+      "description": "REPETITIVE BOOKING NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "RQ",
+      "description": "PURCHASE REQUISITION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "RT",
+      "description": "PAYEE'S FINANCIAL ROUTING NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "SI",
+      "description": "SHIPPER'S IDENTIFYING NUMBER (SID)"
+    },
+    {
+      "referenceNumberQualifierCode": "SK",
+      "description": "STACK TRAIN"
+    },
+    {
+      "referenceNumberQualifierCode": "SN",
+      "description": "SEAL NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "SO",
+      "description": "SHIPPER'S ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "SP",
+      "description": "SCAN LINE"
+    },
+    {
+      "referenceNumberQualifierCode": "SS",
+      "description": "SELLER'S SAMPLE MARK"
+    },
+    {
+      "referenceNumberQualifierCode": "ST",
+      "description": "STORE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "SW",
+      "description": "SELLER'S SALE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "S0",
+      "description": "SPECIAL APPROVAL"
+    },
+    {
+      "referenceNumberQualifierCode": "S1",
+      "description": "ENGINEERING SPECIFICATION NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "S7",
+      "description": "STACK TRAIN IDENTIFICATION"
+    },
+    {
+      "referenceNumberQualifierCode": "TB",
+      "description": "TRUCKER'S BILL OF LADING NUMB ER"
+    },
+    {
+      "referenceNumberQualifierCode": "TJ",
+      "description": "FEDERAL TAXPAYER'S ID NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "UT",
+      "description": "UNIT TRAIN ID"
+    },
+    {
+      "referenceNumberQualifierCode": "VA",
+      "description": "VESSEL AGENT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "VC",
+      "description": "VENDOR CONTRACT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "VD",
+      "description": "VOLUME NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "VM",
+      "description": "VESSEL NAME"
+    },
+    {
+      "referenceNumberQualifierCode": "VN",
+      "description": "VENDOR ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "VP",
+      "description": "VENDOR PRODUCT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "VR",
+      "description": "VENDOR ID NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "V1",
+      "description": "VOLUME PURCHASE AGREEMENT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "V3",
+      "description": "VOYAGE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "WM",
+      "description": "WEIGHT AGREEMENT NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "WO",
+      "description": "WORK ORDER NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "WU",
+      "description": "VESSEL"
+    },
+    {
+      "referenceNumberQualifierCode": "WY",
+      "description": "RAIL WAYBILL NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "XC",
+      "description": "CARGO CONTROL NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "YS",
+      "description": "YARD LOCATION"
+    },
+    {
+      "referenceNumberQualifierCode": "YT",
+      "description": "REPORTER IDENTIFICATION"
+    },
+    {
+      "referenceNumberQualifierCode": "ZE",
+      "description": "COAL AUTHORITY NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "ZF",
+      "description": "RESIDUE LESS THAN 7%"
+    },
+    {
+      "referenceNumberQualifierCode": "ZW",
+      "description": "EBOL CUST ID - I-BOL ONLY"
+    },
+    {
+      "referenceNumberQualifierCode": "ZZ",
+      "description": "MUTUALLY DEFINED"
+    },
+    {
+      "referenceNumberQualifierCode": "09",
+      "description": "CUSTOMS BAR CODE NUMBER"
+    },
+    {
+      "referenceNumberQualifierCode": "2K",
+      "description": "SHIPMENT SUBJECT TO FDA PRIOR NOTIFY"
+    },
+    {
+      "referenceNumberQualifierCode": "4B",
+      "description": "ORIGIN LOCATION CODE"
+    },
+    {
+      "referenceNumberQualifierCode": "4C",
+      "description": "DESTINATION LOCATION CODE"
+    },
+    {
+      "referenceNumberQualifierCode": "5J",
+      "description": "ICENSE"
+    },
+    {
+      "referenceNumberQualifierCode": "6K",
+      "description": "ZONE/TRK/SPOT"
+    },
+    {
+      "referenceNumberQualifierCode": "61",
+      "description": "INBOND COMING INTO US"
+    },
+    {
+      "referenceNumberQualifierCode": "62",
+      "description": "INBOND MOVING THRU US"
+    },
+    {
+      "referenceNumberQualifierCode": "63",
+      "description": "IMMEDIATE EXPORTATION # FOR INBOND"
+    },
+    {
+      "referenceNumberQualifierCode": "64",
+      "description": "TRANIST NUMBER FOR INBOND"
+    },
+    {
+      "referenceNumberQualifierCode": "8M",
+      "description": "ORIGINATING COMPANY ID"
+    },
+    {
+      "referenceNumberQualifierCode": "8N",
+      "description": "RECEIVING COMPANY ID"
+    }
+  ],
+  "brim-customer-names": [
+    "ACEMAR",
+    "ACOMINAS",
+    "AES CORP",
+    "AGGARWAL & CO. (INDIA)",
+    "AKANSA",
+    "AKCANSA",
+    "AL NASR",
+    "ALTOS HORNOS DE MEXICO",
+    "ALUNORTE",
+    "AMERICAN ELECTRIC  COLUMBUS OH",
+    "AMERICAN ELECTRIC COLUMBUS OH",
+    "ANGANG STEEL",
+    "ARCELORMITTA (BOSNIA)",
+    "ARCELORMITTAL (ALGERIA)",
+    "ARCELORMITTAL (BELGIUM)",
+    "ARCELORMITTAL (BOSNIA)",
+    "ARCELORMITTAL (BRAZIL)",
+    "ARCELORMITTAL (CROATIA)",
+    "ARCELORMITTAL (FRANCE)",
+    "ARCELORMITTAL (GERMANY)",
+    "ARCELORMITTAL (ITALY)",
+    "ARCELORMITTAL (MEXICO)",
+    "ARCELORMITTAL (POLAND)",
+    "ARCELORMITTAL (SOUTH AFRICA)",
+    "ARCELORMITTAL (SPAIN)",
+    "ARCELORMITTAL (UKRAINE)",
+    "ARVEDI",
+    "AVANI RESOURCES",
+    "AVANI RESOURCES PTE LTD",
+    "AVDEEVSKIY (UKRAINE)",
+    "AVEDI",
+    "BAOSHAN",
+    "BAOSTEEL",
+    "BAUFONNE",
+    "BRAYTON PT ENERGY LLC",
+    "BREMEN",
+    "BRITISH STEEL",
+    "BULK TRADING",
+    "CARGILL (CHINA)",
+    "CAROLYN",
+    "CAROLYN 03/19",
+    "CENTRAL MINERALS",
+    "CHEERGLORY",
+    "CHINA STEEL (TAIWAN)",
+    "CM ENERGY",
+    "CNBM NEW ENERGY",
+    "COECLERICI AMERICAS LLC",
+    "COGENTRIX  ENERGY",
+    "COLBUN",
+    "COMPANHIA SIDERUGICA DO PECEM",
+    "COMPANHIA SIDERURGICA NAC.",
+    "CONSTELLATION POWER",
+    "CORUS (NETHERLANDS)",
+    "CORUS (UNITED KINGDOM)",
+    "CSA",
+    "CZESTOCHOWA",
+    "DANGOTE CEMENT",
+    "DBK (CROATIA)",
+    "DBK (HUNGARY)",
+    "DBK (ROMANIA)",
+    "DBK (UKRAINE)",
+    "DELETE",
+    "DENOMAPEN",
+    "DONG FENG",
+    "DONGFANG",
+    "E COMMODITIES HOLDINGS",
+    "EAST CHICAGO INDIANA",
+    "ECI",
+    "EDF",
+    "EDP",
+    "EGY GROUP",
+    "EGYPTIAN MINISTRY OF DEFENSE",
+    "EKAM EXIM (INDIA)",
+    "ELECTRABEL",
+    "ELECTRICITE DE FRANCE",
+    "ENEL",
+    "EON",
+    "EQUIPOWER",
+    "ERDEMIR",
+    "ESSAR",
+    "EVRAZ",
+    "EXIROS",
+    "EXPORTING COMMODITIES INC.",
+    "FANGCHENG",
+    "FLAME",
+    "FREEPOINT",
+    "FUSHENG INT'L",
+    "GDF SUEZ",
+    "GDNASK",
+    "GERDAU",
+    "GIKIL",
+    "GLENCORE",
+    "GLOBAL ISPAT COKE (CROATIA)",
+    "GRANDEUR INTL HOLDINGS",
+    "GUANGXI",
+    "HANGZHOU COGENERATION",
+    "HANSEATIC",
+    "HARGREAVES",
+    "HEBEI IRON & STEEL",
+    "HONGKONG WINNER RESOURES HOLDINGS",
+    "HUADONG",
+    "HUAYANG",
+    "HYUNDAI",
+    "ICDAS",
+    "ILVA",
+    "IMPORTKOHLE GES.M.H.B",
+    "INDIANA HARBOR COKE COMPANY",
+    "INDUSTRIAS DOY",
+    "INTER SILESIA",
+    "ISDEMIR",
+    "ITALIANA COKE",
+    "ITOCHU (CHINA)",
+    "J ARON",
+    "JAVELIN GLOBAL COMMODITIES",
+    "JFE STEEL (JAPAN)",
+    "JIANGSU HUAJIAN ENERGY",
+    "JIANGSU SHAGANG",
+    "JIGANG HONG KONG HOLDING CO LTD",
+    "JINDAL",
+    "JINDAL POWER AND STEEL LTD",
+    "JORF LASFAR",
+    "KARDEMIR",
+    "KOBE STEEL",
+    "LIUZHOU IRON AND STEEL",
+    "LOUIS DREYFUS",
+    "LUCCHINI",
+    "MAX COAL PTE LTD",
+    "MECHEL CARBON",
+    "MECHEL CARBON AG",
+    "MECHEL-CHELYABINSK",
+    "METALIMEX",
+    "METINVEST",
+    "MF TEST - UPSHAW - 09252022",
+    "MMTC LIMITED",
+    "MORGAN STANLEY TRADING",
+    "NALON",
+    "NINGBO",
+    "NINGBO STEEL",
+    "NIPPON",
+    "NISSHIN",
+    "NOBLE",
+    "NORTHEAST UTILITIES",
+    "NOVA SCOTIA POWER",
+    "NUH CIMENTO SANAYI",
+    "ONEE",
+    "ONESTEEL",
+    "PANGANG STEEL",
+    "POLSKI KOKS",
+    "POLSKIKOKS",
+    "POSCO",
+    "PROFUSA",
+    "PRONICO",
+    "PRUNA",
+    "PSEG - ENERGY RESOURCES & TRADE",
+    "QIAN'AN GOLDEN PT TRADING CO. LTD.",
+    "RASHTRIYA ISPAT NIGAM LTD",
+    "RAUTARUUKKI",
+    "REI",
+    "ROGESA",
+    "RVG",
+    "RWE",
+    "SALZGITTER",
+    "SATAVAHANA",
+    "SAURASHPRA",
+    "SHAGONG STEEL",
+    "SHAOGUAN STEEL",
+    "SHENLONG RESOURCES",
+    "SHOUGANG-JINGTANG",
+    "SHREE CEMENT",
+    "SHREE ELECTROMELTS, LTD (INDIA)",
+    "SIDERAR",
+    "SIDERURGICA TRIESTINA",
+    "SIMEC",
+    "SINCO RESOURCES",
+    "SINO WISE HOLDING LTD",
+    "SINOMET",
+    "SINOSTEEL (CHINA)",
+    "SOMEVALIDDATA",
+    "SRG GLOBAL RESOURCES",
+    "SSAB",
+    "SSI",
+    "SSI (FORMERLY TATA)",
+    "STEEL AUTHORITY OF INDIA",
+    "STEEL MONT",
+    "STEMCOR (MULTIPLE DESTINATIONS)",
+    "SUMITOMO",
+    "TALEN - WAGNER POWER PLANT",
+    "TANGSHAN HUI HUIXIN",
+    "TANGSHAN HUIXIN",
+    "TATA STEEL",
+    "TAURIAN IRON & STEEL",
+    "TBD (INDIA)",
+    "TERNIUM",
+    "TEST",
+    "TEST 12-18-19",
+    "THYSSENKRUPP",
+    "TIRRENO POWER",
+    "TRAFIGURA PTE",
+    "UNDETERMINED",
+    "UNIPER",
+    "UNITED COKE PVT (INDIA)",
+    "UNITED STATES STEEL (BOSNIA)",
+    "UNITED STATES STEEL (POLAND)",
+    "UNITED STATES STEEL (SLOVAKIA)",
+    "US STEEL INC",
+    "USIMINAS",
+    "VALE S.A.",
+    "VATTENFALL",
+    "VIRGINIA POWER ENERGY MARKETING",
+    "VISA STEEL",
+    "VITOL (STEAM)",
+    "VOESTALPINE",
+    "WEGLOKOKS",
+    "WINDOWS2012TEST",
+    "WINSWAY (CHINA)",
+    "YANGCHENG MATERIALS",
+    "YANGCHENG MINERALS",
+    "ZAKLADY KOKSOWNICZE ZDZIESZOWICE",
+    "ZARMEN",
+    "ZENTRALKOKEREI SAAR",
+    "ZHONG SHAN CO. LTD",
+    "ZJMI ENVIRONMENTAL ENERGY CO LTD",
+    "1"
+  ],
+  "brim-vessel-destinations": [
+    "ALBANIA",
+    "ALPENA, MICHIGAN",
+    "ALTAMIRA, MEXICO",
+    "ANOTHERVALIDDATA",
+    "ARGENTINA",
+    "ARUBA",
+    "AUSTRALIA",
+    "AUSTRIA",
+    "BAHAMAS",
+    "BALTIMORE MD",
+    "BATH, ONTARIO, CANAD",
+    "BELGIUM",
+    "BELLEDUNE, NOVA SCOT",
+    "BHUTAN",
+    "BOSNIA",
+    "BOWMANVILLE, ONTARIO",
+    "BOYNE CITY, MICHIGAN",
+    "BRAYTON PT MASS",
+    "BRAZIL",
+    "BRIDGEPORT CONN",
+    "BRIM DR PROD 6-5-20",
+    "BULGARIA",
+    "BUPSHAW TEST",
+    "BURNS HARBOR, INDIAN",
+    "CANADA",
+    "CANCUN,MEXICO",
+    "CAPE FEAR",
+    "CARMEUSE LIME RIVER",
+    "CAROLYN",
+    "CAROLYNLAND",
+    "CENTRAL HUDSON",
+    "CHARLEVOIX, MICHIGAN",
+    "CHESAPEAKE,VA",
+    "CHESTERFIELD VA",
+    "CHICAGO, ILLINOIS",
+    "CHILE",
+    "CHINA",
+    "CLARKSON, ONT.",
+    "CLEVELAND",
+    "CONGO",
+    "CONTREU KER, QUEBEC",
+    "COTE ST. CATHERINES,",
+    "COURTRIGHT, ONTARIO,",
+    "CROATIA",
+    "CZECH REPUBLIC",
+    "DELMARVA POWER",
+    "DENMARK",
+    "DESTINATION TEST 1",
+    "DETROIT, MICHIGAN",
+    "DULUTH, MINNESOTA",
+    "EAST CHICAGO INDIANA",
+    "ECORSE, MICHIGAN",
+    "EGYPT",
+    "ENGLAND",
+    "ESCANABA, MICHIGAN",
+    "ESSEXVILLE, MICHIGAN",
+    "FILER CITY, MICHIGAN",
+    "FINLAND",
+    "FRANCE",
+    "GARY INDIANA",
+    "GERMANY",
+    "GLADSTONE, MICHIGAN",
+    "GRAND HAVEN, MICHIGA",
+    "GREEN BAY, WISCONSIN",
+    "GUATEMALA",
+    "HAMILTON, ONTARIO, C",
+    "HARBOR BEACH, MICHIG",
+    "HOLLAND",
+    "HOLLAND, MICHIGAN",
+    "HUDSON",
+    "HUNGARY",
+    "ICELAND",
+    "INDIA",
+    "IRELAND",
+    "ISRAEL",
+    "ISREAL",
+    "ITALY",
+    "JAMAICA",
+    "JAPAN",
+    "JERSEY CITY NJ",
+    "JJQATEST",
+    "JROSE TEST MESSAGE",
+    "JTESTTT",
+    "KINGSVILLE, ONTARIO",
+    "KOREA",
+    "LACKAWANNA, NY",
+    "LAMBERTS POINT VA US",
+    "LUXEMBOURG",
+    "MANISTEE, MICHIGAN",
+    "MANITOWAC, WISCONSIN",
+    "MARINETTE, WISCONSIN",
+    "MARQUETTE, MICHIGAN",
+    "MARYSVILLE, MICHIGAN",
+    "MENOMINEE MI",
+    "MERCER",
+    "MEXICO",
+    "MILWAUKEE, WISCONSIN",
+    "MONROE, MICHIGAN",
+    "MOROCCO",
+    "MUSKEGON, MICHIGAN",
+    "NANTICOKE, ONTARIO,",
+    "NETHERLANDS",
+    "NEW ENGLAND",
+    "NEWFOUNDLAND",
+    "NEWPORT NEWS VA",
+    "NIGERIA",
+    "NORFOLK VA",
+    "NORWAY",
+    "NOVA SCOTIA",
+    "ONTONAGON, MICHIGAN",
+    "PANAMA",
+    "PERU",
+    "PHILADELPHIA PA",
+    "PICTON, ONT.",
+    "POLAND",
+    "PORT CREDIT, ONTARIO",
+    "PORT WASHINGTON, WIS",
+    "PORTLAND ME",
+    "PORTSMOUTH NH",
+    "PORTSMOUTH VA",
+    "PORTUGAL",
+    "POSSOM POINT VA",
+    "PROVIDENCE RI",
+    "QUEBEC",
+    "RHEL8 TEST",
+    "RIVER ROUGE MICHIGAN",
+    "ROMANIA",
+    "ROSETON NY",
+    "RUSSIA",
+    "SAGINAW, MICHIGAN",
+    "SALEM MASS",
+    "SAN JOSE, U.S",
+    "SANDUSKY OH",
+    "SAULT STE. MARIE, ON",
+    "SCOTLAND",
+    "SEARSPORT ME",
+    "SENEGAL",
+    "SERPENT HARBOR, ONTA",
+    "SILVER BAY, MINNESOT",
+    "SLOVAKIA",
+    "SOMERSET MASS",
+    "SOREL QUEBEC, CANADA",
+    "SOUTH AFRICA",
+    "SPAIN",
+    "SPARROWS POINT",
+    "ST. CATHERINES, ONT.",
+    "ST. CLAIR, MICHIGAN",
+    "SUPERIOR, WISC.",
+    "SWEDEN",
+    "SWEDESBORO NJ",
+    "SWITZERLAND",
+    "TAIWAN",
+    "TEST LOCATION 12-18-",
+    "TEST MESSAGE",
+    "TEST 9-9-24",
+    "TESTQA2012",
+    "THESSALON, ONTARIO,",
+    "THREE RIVER, ONT.",
+    "TRENTON MI",
+    "TRENTON NJ",
+    "TURKEY",
+    "UK",
+    "UKRAINE",
+    "UNITED KINGDOM",
+    "UNITED STATES",
+    "UNKNOWN",
+    "VENEZUELA",
+    "VIRGIN ISLANDS",
+    "WINDSOR, ONTARIO CAN",
+    "WYANDOTTE, MICHIGAN",
+    "YTTEST",
+    "YUGOSLAVIACZECH",
+    "ZZZ COMA TEST 9-16-2",
+    "ZZZ COMA TEST2 9-16-",
+    "ZZZZ COMA TEST 2 9-1"
+  ],
+  "special-endorsements": [
+    {
+      "specialEndorsementCode": "HM",
+      "description": "ENDORSED AS HAZARDOUS MATERIAL"
+    },
+    {
+      "specialEndorsementCode": "VC",
+      "description": "LOADED FULL VISIBLE CAPY"
+    },
+    {
+      "specialEndorsementCode": "ST",
+      "description": "STACK TRAIN"
+    },
+    {
+      "specialEndorsementCode": "HS",
+      "description": "HAZMAT SURCHARGE"
+    },
+    {
+      "specialEndorsementCode": "XP",
+      "description": "EXPORT SHIPMENT"
+    },
+    {
+      "specialEndorsementCode": "HZ",
+      "description": "MULTI HAZMAT"
+    },
+    {
+      "specialEndorsementCode": "IP",
+      "description": "IMPORT SHIPMENT"
+    },
+    {
+      "specialEndorsementCode": "IB",
+      "description": "IN BOND"
+    },
+    {
+      "specialEndorsementCode": "WL",
+      "description": "WEIGH THIS CAR"
+    },
+    {
+      "specialEndorsementCode": "FA",
+      "description": "FACE 'A-END' TOWARD LOCOMOTIVE"
+    },
+    {
+      "specialEndorsementCode": "T1",
+      "description": "TANK CONTAINER (TANK ON FLAT CAR)"
+    },
+    {
+      "specialEndorsementCode": "NH",
+      "description": "DO NOT HUMP"
+    },
+    {
+      "specialEndorsementCode": "HW",
+      "description": "HIGH WIDE LOAD"
+    },
+    {
+      "specialEndorsementCode": "BN",
+      "description": "IF BAD ORDER NOTIFY SHIPPER"
+    },
+    {
+      "specialEndorsementCode": "AV",
+      "description": "ANNUAL VOLUME"
+    },
+    {
+      "specialEndorsementCode": "ER",
+      "description": "RETURN EMPTY VIA REVERSE ROUTE"
+    },
+    {
+      "specialEndorsementCode": "RS",
+      "description": "INSPECT HOURLY IF CAR STOPPED"
+    },
+    {
+      "specialEndorsementCode": "CM",
+      "description": "COMPANY MATERIAL SHIPMENT"
+    },
+    {
+      "specialEndorsementCode": "HV",
+      "description": "HIGH VALUE LOAD"
+    },
+    {
+      "specialEndorsementCode": "DU",
+      "description": "DO NOT UNCOUPLE"
+    },
+    {
+      "specialEndorsementCode": "HR",
+      "description": "HOME FOR REPAIR"
+    },
+    {
+      "specialEndorsementCode": "HE",
+      "description": "HEAD END CAR"
+    },
+    {
+      "specialEndorsementCode": "ED",
+      "description": "EXCESSIVE DIMENSION"
+    },
+    {
+      "specialEndorsementCode": "WI",
+      "description": "WAIVE INSPECTION"
+    },
+    {
+      "specialEndorsementCode": "WN",
+      "description": "DO NOT WEIGH"
+    },
+    {
+      "specialEndorsementCode": "SD",
+      "description": "SUBJECT TO SPECIAL DETENTION"
+    },
+    {
+      "specialEndorsementCode": "ND",
+      "description": "DO NOT DIVERT"
+    },
+    {
+      "specialEndorsementCode": "DT",
+      "description": "DEAD IN TOW (LOCOMOTIVE)"
+    },
+    {
+      "specialEndorsementCode": "NC",
+      "description": "NOTIFY CONSIGNEE BEFORE DELY"
+    },
+    {
+      "specialEndorsementCode": "CY",
+      "description": "ENDORSED FOR RECYCLING"
+    },
+    {
+      "specialEndorsementCode": "UL",
+      "description": "FRM B-END/UNLD LEFT SIDE"
+    },
+    {
+      "specialEndorsementCode": "B2",
+      "description": "NUT & SLAG GREEN"
+    },
+    {
+      "specialEndorsementCode": "EP",
+      "description": "EXPEDITE"
+    },
+    {
+      "specialEndorsementCode": "UR",
+      "description": "FRM B-END/UNLD RIGHT SIDE"
+    },
+    {
+      "specialEndorsementCode": "NP",
+      "description": "DO NOT POOL"
+    },
+    {
+      "specialEndorsementCode": "SH",
+      "description": "SHIFTABLE LOAD"
+    },
+    {
+      "specialEndorsementCode": "MR",
+      "description": "MECHANICAL REFRIGERATION"
+    },
+    {
+      "specialEndorsementCode": "TT",
+      "description": "TEAM TRACK DELIVERY"
+    },
+    {
+      "specialEndorsementCode": "NS",
+      "description": "NOTIFY SHIPPER BEFORE RECON"
+    },
+    {
+      "specialEndorsementCode": "DW",
+      "description": "DESTINATION WEIGHTS APPLY"
+    },
+    {
+      "specialEndorsementCode": "CI",
+      "description": "STOP FOR CUSTOMS INSPECTIONS"
+    },
+    {
+      "specialEndorsementCode": "MF",
+      "description": "CLEARED FOR BORDER CROSSING"
+    },
+    {
+      "specialEndorsementCode": "DN",
+      "description": "NOTIFY SHIPPER IF DIVERTED"
+    },
+    {
+      "specialEndorsementCode": "WE",
+      "description": "WEIGH EMPTY"
+    },
+    {
+      "specialEndorsementCode": "NT",
+      "description": "DO NOT TRANSFER CONTENTS"
+    },
+    {
+      "specialEndorsementCode": "LS",
+      "description": "LOCAL SERVICE ONLY"
+    },
+    {
+      "specialEndorsementCode": "SR",
+      "description": "SPEED RESTRICTION"
+    },
+    {
+      "specialEndorsementCode": "WH",
+      "description": "ATTACHMENTS - HIGH WIDE NOTICE"
+    },
+    {
+      "specialEndorsementCode": "EW",
+      "description": "EXCESSIVE WEIGHT"
+    },
+    {
+      "specialEndorsementCode": "LP",
+      "description": "PROTECT LOWEST THRU RATE"
+    },
+    {
+      "specialEndorsementCode": "IS",
+      "description": "RAIL SURVEILANCE SERVICE"
+    },
+    {
+      "specialEndorsementCode": "RR",
+      "description": "REAR RIDER"
+    },
+    {
+      "specialEndorsementCode": "BL",
+      "description": "WIND BLOWABLE LOAD"
+    },
+    {
+      "specialEndorsementCode": "BW",
+      "description": "BILL SHIPPER FOR WEIGH CHARGE"
+    },
+    {
+      "specialEndorsementCode": "MC",
+      "description": "PERSON IN CHARGE OF CAR"
+    },
+    {
+      "specialEndorsementCode": "NX",
+      "description": "NOT FOR EXPORT"
+    },
+    {
+      "specialEndorsementCode": "AT",
+      "description": "ATTACHMENT TO MOVE WITH CAR"
+    },
+    {
+      "specialEndorsementCode": "FB",
+      "description": "FACE 'B-END' TOWARD LOCOMOTIVE"
+    },
+    {
+      "specialEndorsementCode": "XT",
+      "description": "CROSS TOWN"
+    },
+    {
+      "specialEndorsementCode": "AAS",
+      "description": "ATTENDANTS ACCOMPANING"
+    },
+    {
+      "specialEndorsementCode": "AB",
+      "description": "AIRBRAKE CONTROLLED"
+    },
+    {
+      "specialEndorsementCode": "ABB",
+      "description": "THIS IS GARBAGE"
+    },
+    {
+      "specialEndorsementCode": "AGS",
+      "description": "ARMED GUARD SERVICE"
+    },
+    {
+      "specialEndorsementCode": "AK",
+      "description": "ATTACHMENT AUTO KEYS"
+    },
+    {
+      "specialEndorsementCode": "AMM",
+      "description": "A.M. DELIVERY REQUIREMENT"
+    },
+    {
+      "specialEndorsementCode": "BCP",
+      "description": "BYPASS CONSOLIDATION PT"
+    },
+    {
+      "specialEndorsementCode": "BLK",
+      "description": "BLOCKING AND BRACING"
+    },
+    {
+      "specialEndorsementCode": "BNS",
+      "description": "BOLSTER LOAD-DO NOT SWITCH"
+    },
+    {
+      "specialEndorsementCode": "BT",
+      "description": "DEST TO BULK TRANS FACILITY"
+    },
+    {
+      "specialEndorsementCode": "B1",
+      "description": "LOW SULPHUR RED"
+    },
+    {
+      "specialEndorsementCode": "B3",
+      "description": "STOKER BLUE"
+    },
+    {
+      "specialEndorsementCode": "CCS",
+      "description": "CARRIER CABOOSE"
+    },
+    {
+      "specialEndorsementCode": "CD",
+      "description": "ATTACHMT-CUSTOMER'S DOCUMENT"
+    },
+    {
+      "specialEndorsementCode": "CE",
+      "description": "CLEARED FOR EXPORT"
+    },
+    {
+      "specialEndorsementCode": "CGC",
+      "description": "CARRIER GUARD CAR SERVICE"
+    },
+    {
+      "specialEndorsementCode": "CGR",
+      "description": "RETURN CARRIER GUARD CAR SVC"
+    },
+    {
+      "specialEndorsementCode": "CNS",
+      "description": "CONSOLIDATED LOADS FOR CANADA"
+    },
+    {
+      "specialEndorsementCode": "CO",
+      "description": "NO MARSHALLING REQ. FOR HAZMAT"
+    },
+    {
+      "specialEndorsementCode": "CSP",
+      "description": "GOVERNMENT CABOOSE"
+    },
+    {
+      "specialEndorsementCode": "CW",
+      "description": "BILL CONSIGNEE WEIGH CHARGE"
+    },
+    {
+      "specialEndorsementCode": "DLR",
+      "description": "NOTIFY SHPPR IF DELAYED ENRTE"
+    },
+    {
+      "specialEndorsementCode": "DNC",
+      "description": "DO NOT COUPLE DIAPHRAGM CARS"
+    },
+    {
+      "specialEndorsementCode": "DNT",
+      "description": "DO NOT COUPLE TO TANK CARS"
+    },
+    {
+      "specialEndorsementCode": "DSK",
+      "description": "DO NOT COUPLE DBL SHELF CPLS"
+    },
+    {
+      "specialEndorsementCode": "EXQ",
+      "description": "EXPEDITED SERVICE"
+    },
+    {
+      "specialEndorsementCode": "E1",
+      "description": "TRACK PANELS - NS CMTL"
+    },
+    {
+      "specialEndorsementCode": "FC",
+      "description": "FURTHER INSTRUC. & MAY DELY."
+    },
+    {
+      "specialEndorsementCode": "GA",
+      "description": "GOODS ASTRAY"
+    },
+    {
+      "specialEndorsementCode": "GI",
+      "description": "STOP FOR GRAIN INSPECTION"
+    },
+    {
+      "specialEndorsementCode": "GSS",
+      "description": "GREATER SECURITY SERVICE"
+    },
+    {
+      "specialEndorsementCode": "HBR",
+      "description": "HAND BRAKES MUST BE RELEASED"
+    },
+    {
+      "specialEndorsementCode": "HP",
+      "description": "HEATED PRIOR TO LOADING"
+    },
+    {
+      "specialEndorsementCode": "ID",
+      "description": "INSPECT @ DEST. & DISPOSITION"
+    },
+    {
+      "specialEndorsementCode": "IMP",
+      "description": "IMPACTOGRAPHS"
+    },
+    {
+      "specialEndorsementCode": "INT",
+      "description": "INTRA-PLANT MOVE"
+    },
+    {
+      "specialEndorsementCode": "JIT",
+      "description": "JUST IN TIME"
+    },
+    {
+      "specialEndorsementCode": "KMD",
+      "description": "KEEP MATERIAL DRY"
+    },
+    {
+      "specialEndorsementCode": "LB",
+      "description": "LAND BRIDGE (IMPORT/EXPORT)"
+    },
+    {
+      "specialEndorsementCode": "LC",
+      "description": "CAR TRIP LEASED TO CONSIGNEE"
+    },
+    {
+      "specialEndorsementCode": "LD",
+      "description": "LOADING DEVICES"
+    },
+    {
+      "specialEndorsementCode": "MB",
+      "description": "MISCELLANEOUS BILL"
+    },
+    {
+      "specialEndorsementCode": "MRF",
+      "description": "REFRIGERATED"
+    },
+    {
+      "specialEndorsementCode": "MTE",
+      "description": "MILITARY TRAFFIC - EXPEDITE"
+    },
+    {
+      "specialEndorsementCode": "NHL",
+      "description": "DO NOT USE LOCO TO PUSH,"
+    },
+    {
+      "specialEndorsementCode": "NI",
+      "description": "NEW EQUIP-1ST TRANSBORDER MOVE"
+    },
+    {
+      "specialEndorsementCode": "NPR",
+      "description": "NO PLACARDS REQUIRED"
+    },
+    {
+      "specialEndorsementCode": "OFU",
+      "description": "FUMIGATION"
+    },
+    {
+      "specialEndorsementCode": "OG",
+      "description": "ORIGIN OFFICIAL GRADE"
+    },
+    {
+      "specialEndorsementCode": "OS",
+      "description": "LOAD LESS OR EQUAL TO CAR ORD."
+    },
+    {
+      "specialEndorsementCode": "PB",
+      "description": "PERISHABLE IN BOX CAR"
+    },
+    {
+      "specialEndorsementCode": "PS",
+      "description": "PROTECTIVE SERVICE"
+    },
+    {
+      "specialEndorsementCode": "RCC",
+      "description": "RECONSIGNMENT"
+    },
+    {
+      "specialEndorsementCode": "RDR",
+      "description": "ROADRAILER SERVICE"
+    },
+    {
+      "specialEndorsementCode": "RET",
+      "description": "RETURNED LOAD"
+    },
+    {
+      "specialEndorsementCode": "RIS",
+      "description": "RAIL INSPECTION SERVICE"
+    },
+    {
+      "specialEndorsementCode": "RMS",
+      "description": "RAIL SURVEILLANCE"
+    },
+    {
+      "specialEndorsementCode": "RRR",
+      "description": "ROUND TRIP SERVICE"
+    },
+    {
+      "specialEndorsementCode": "RSS",
+      "description": "RESTRICTED SPEEDS"
+    },
+    {
+      "specialEndorsementCode": "RT",
+      "description": "RECORD FOR TRANSIT"
+    },
+    {
+      "specialEndorsementCode": "R1",
+      "description": "MERIDIAN REGULAR"
+    },
+    {
+      "specialEndorsementCode": "R2",
+      "description": "MERIDIAN OLD PIG TRACK"
+    },
+    {
+      "specialEndorsementCode": "R3",
+      "description": "MERIDIAN COBB SIDING"
+    },
+    {
+      "specialEndorsementCode": "SC",
+      "description": "SHOVE TO REST AND COVER"
+    },
+    {
+      "specialEndorsementCode": "SE",
+      "description": "ATTACHED SHIPPERS EXPORT DOC"
+    },
+    {
+      "specialEndorsementCode": "SFT",
+      "description": "SPECIAL TRAIN MOVEMENT"
+    },
+    {
+      "specialEndorsementCode": "SK",
+      "description": "REQUIRES SHELF COUPLERS"
+    },
+    {
+      "specialEndorsementCode": "SLC",
+      "description": "SHIPPERS LOAD AND COUNT"
+    },
+    {
+      "specialEndorsementCode": "TA",
+      "description": "CARS TEMPORARILY ARTICULATED"
+    },
+    {
+      "specialEndorsementCode": "TMS",
+      "description": "MULTI-TANK SURVEILLANCE SVC"
+    },
+    {
+      "specialEndorsementCode": "TN",
+      "description": "TURN CAR"
+    },
+    {
+      "specialEndorsementCode": "TS",
+      "description": "TRANSIT SHIPMENT"
+    },
+    {
+      "specialEndorsementCode": "TSS",
+      "description": "TANK SURVEILLANCE SERVICE"
+    },
+    {
+      "specialEndorsementCode": "UB",
+      "description": "UNLOAD AT BUMPER (CIRCUS RAMP)"
+    },
+    {
+      "specialEndorsementCode": "UP",
+      "description": "UNPROTECTED PERISHABLE"
+    },
+    {
+      "specialEndorsementCode": "US",
+      "description": "SHIPPER CERT.UNDER 240000 LBS."
+    },
+    {
+      "specialEndorsementCode": "VN",
+      "description": "VERIFICATION WEIGH"
+    },
+    {
+      "specialEndorsementCode": "WD",
+      "description": "WAIVE INSPECTION - SET DIRECT"
+    },
+    {
+      "specialEndorsementCode": "WO",
+      "description": "WEIGH TO CHECK FOR OVERLOAD"
+    }
+  ],
+  "submit": {
+    "orderSetup": {
+      "overwriteAllPOEs": true,
+      "caseNumbers": [
+        {}
+      ],
+      "idlerEquipments": [],
+      "orderOption": "RESHIP",
+      "piecesOfEquipment": [
+        {
+          "equipmentId": {
+            "initial": "NS",
+            "number": "1"
+          },
+          "sealNumber": "11",
+          "grossWeight": "10",
+          "netWeight": 20,
+          "tareWeight": 10
+        },
+        {
+          "equipmentId": {
+            "initial": "NS",
+            "number": "3"
+          },
+          "sealNumber": "11",
+          "grossWeight": "10",
+          "netWeight": 20,
+          "tareWeight": 20
+        },
+        {
+          "equipmentId": {
+            "initial": "NS",
+            "number": "4"
+          },
+          "sealNumber": "11",
+          "grossWeight": "10",
+          "netWeight": 20,
+          "tareWeight": 20
+        }
+      ],
+      "shipperBOLTime": "04:00 AM",
+      "totalNetWeight": 60,
+      "manifestEquipment": {}
+    },
+    "commodity": {
+      "stcc": {},
+      "hazSTCCs": []
+    },
+    "route": {
+      "segments": []
+    },
+    "rating": {},
+    "shipmentReferences": {
+      "shipmentReferences": []
+    },
+    "shipmentParties": {
+      "additionalParties": [],
+      "consignee": {},
+      "shipper": {}
+    }
+  },
+  "submitted-requests": [
+    {
+      "id": "cd987542-d689-4eb1-bf88-27d7dbf1e548",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-16T15:47:04.025+00:00",
+      "equipmentId": "NS 1",
+      "status": "PROCESSED",
+      "serialNumber": "BOL sbmttd",
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "0e0ce09a-5f84-4baf-b7ef-5870f8baff41",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-10T13:13:18.518+00:00",
+      "equipmentId": "BTTX 880281",
+      "status": "ERROR",
+      "serialNumber": null,
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "e5404cec-f753-43a7-9418-92d960989abe",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-10T13:09:32.694+00:00",
+      "equipmentId": "BTTX 880281",
+      "status": "PROCESSED",
+      "serialNumber": "BOL sbmttd",
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "5209970f-684f-4c90-9850-119b259103a0",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-10T13:01:21.256+00:00",
+      "equipmentId": "BTTX 880281",
+      "status": "ERROR",
+      "serialNumber": null,
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "4cbe4dee-f2b9-4d62-bed7-00337cc7a74f",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-09T14:52:37.984+00:00",
+      "equipmentId": "BTTX 880281",
+      "status": "PROCESSED",
+      "serialNumber": "BOL sbmttd",
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "920b4cb6-62b6-47fe-b078-0660b39448b7",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-08T18:48:17.306+00:00",
+      "equipmentId": "BTTX 880281",
+      "status": "PROCESSED",
+      "serialNumber": "BOL sbmttd",
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "4156a7a8-14c4-4953-b310-9d9853e918a9",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-08T18:38:54.422+00:00",
+      "equipmentId": "BTTX 880281",
+      "status": "PROCESSED",
+      "serialNumber": "BOL sbmttd",
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "f6c44ba4-3ea8-4fff-9abf-dbce39d6bf06",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-08T18:29:34.623+00:00",
+      "equipmentId": "BTTX 880281",
+      "status": "PROCESSED",
+      "serialNumber": "BOL sbmttd",
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "7e2e9066-dec9-47d5-b2c5-c9a3b10d8ebd",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-08T18:21:23.976+00:00",
+      "equipmentId": "BTTX 880281",
+      "status": "PROCESSED",
+      "serialNumber": "BOL sbmttd",
+      "orderOption": "LOADED_MERCHANDISE"
+    },
+    {
+      "id": "94baf733-4521-43af-ad2a-b11184d609be",
+      "user": "ZD4EU",
+      "dateSubmitted": "2024-11-22T14:51:28.761+00:00",
+      "equipmentId": "NS 1",
+      "status": "ERROR",
+      "serialNumber": null,
+      "orderOption": "LOADED_MERCHANDISE"
+    }
+  ],
+  "drafts": [
+    {
+      "id": "cd987542-d689-4eb1-bf88-27d7dbf1e548",
+      "user": "ZD4EU",
+      "dateSubmitted": "2025-01-16T15:47:04.025+00:00",
+      "equipmentId": "NS 1",
+      "status": "DRAFT",
+      "serialNumber": "BOL sbmttd",
+      "orderOption": "LOADED_MERCHANDISE"
+    }
+  ],
+  "updated-waybills": []
+}
