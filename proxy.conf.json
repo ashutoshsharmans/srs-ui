@@ -1,0 +1,98 @@
+{
+  "/api/customer-service": {
+    "target": "https://otc-customer-service-raoapps-test.apps.ocp4np.nscorp.com/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/customer-service": ""
+    }
+  },
+  "/api/hazardous-service": {
+    "target": "https://otc-hazardous-service-raoapps-test.apps.ocp4np.nscorp.com/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/hazardous-service": ""
+    }
+  },
+  "/api/route-service": {
+    "target": "https://otc-route-service-raoapps-test.apps.ocp4np.nscorp.com/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/route-service": ""
+    }
+  },
+  "/api/srs-service": {
+    "target": "http://localhost:8099/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/srs-service": ""
+    }
+  },
+  "/api/carta-porte-service": {
+    "target": "https://otc-carta-porte-service-raoapps-test.apps.ocp4np.nscorp.com/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/carta-porte-service": ""
+    }
+  },
+  "/api/shipment-order-service": {
+    "target": "https://otc-shipment-order-service-raoapps-test.apps.ocp4np.nscorp.com/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/shipment-order-service": ""
+    }
+  },
+  "/api/special-endorsement-service": {
+    "target": "http://localhost:8099/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/special-endorsement-service": ""
+    }
+  },
+  "/api/equipment-service": {
+    "target": "http://localhost:8099/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/equipment-service": ""
+    }
+  },
+  "/api/security-service": {
+    "target": "http://localhost:8099/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/security-service": ""
+    }
+  },
+  "/api/notification-service": {
+    "target": "http://localhost:8099/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/notification-service": ""
+    }
+  },
+  "/api/pattern-service": {
+    "target": "http://localhost:8099/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/pattern-service": ""
+    }
+  },
+  "/api/stcc-service": {
+    "target": "http://localhost:8099/",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api/stcc-service": ""
+    }
+  }
+}
